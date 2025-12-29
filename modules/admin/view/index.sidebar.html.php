@@ -75,6 +75,16 @@ $pendingOrdersCount = loadClass('admin/order')->getPendingOrdersCount();
             </a>
           </li>
 
+          <li><a href="#" class="waves-effect waves-blue grey-text">General</a></li>
+          <li <?php if ($sSection == 'edit.section-hero')
+              {
+                echo ' class="active"';
+              } ?>>
+            <a class="waves-effect waves-blue" href="<?php echo $extra->generateUrl('admin', 'edit.section-hero'); ?>">
+              <i class="material-icons">store</i>
+              Foto de Portada
+            </a>
+          </li>
           <li><a href="#" class="waves-effect waves-blue grey-text">Productos</a></li>
           <li <?php if ($sSection == 'view.products')
               {

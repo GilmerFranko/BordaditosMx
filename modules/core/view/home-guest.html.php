@@ -23,15 +23,10 @@ require Core::view('menu', 'core');
 	<!-- Main Promo Banner -->
 	<div class="container my-3">
 		<div class="promo-banner">
-			<img src="https://tse3.mm.bing.net/th/id/OIP.eJjylp2wemhUFAQ9CFozEAHaFV?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Tom & Jerry" class="banner-image">
-			<div class="promo-badge">
-				<div class="promo-text">
-					<div class="fw-bold">PROMOCIÓN</div>
-					<div class="fw-bold">NAVIDEÑA</div>
-				</div>
-				<div class="promo-circle">2x1</div>
-			</div>
-			<img src="https://tse3.mm.bing.net/th/id/OIP.eJjylp2wemhUFAQ9CFozEAHaFV?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Santa" class="santa-image">
+			<img src="<?= $config['products_url'] . '/' . $sectionHero['image_section'] ?>" alt="Tom & Jerry" class="banner-image">
+			<?php if ($session->is_admod == 1) : ?>
+				<a href="<?= gLink('admin/edit.section-hero') ?>" class="banner-edit">Editar</a>
+			<?php endif; ?>
 		</div>
 	</div>
 
