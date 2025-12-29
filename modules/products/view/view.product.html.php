@@ -22,7 +22,7 @@ require Core::view('head', 'core');
   <?php require Core::view('product.details', 'products'); ?>
 
   <div class="container py-4">
-    <form action="<?= gLink('products/process.purchase') ?>" method="GET">
+    <form id="purchaseForm" action="<?= gLink('products/process.purchase') ?>" method="GET">
       <!-- Color Selection Section -->
       <div class="section-title mb-4">
         <h2 class="fw-bold">ELIGE LOS COLORES DE TU DUO</h2>
@@ -333,7 +333,7 @@ require Core::view('head', 'core');
     });
 
     // Agregar los inputs al formulario
-    $('form').append(inputSize1, inputSize2);
+    $('#purchaseForm').append(inputSize1, inputSize2);
 
     // Evento para manejar la selección de talla de la sudadera 1
     $('.btn-size.sweater-1').on('click', function(e) {
@@ -356,7 +356,7 @@ require Core::view('head', 'core');
     });
 
     // Validar el formulario antes de enviarlo
-    $('form').on('submit', function(e) {
+    $('#purchaseForm').on('submit', function(e) {
       if (!selectedSize1 <?php echo ($exist_size_2) ? '|| !selectedSize2' : '' ?>) {
         e.preventDefault();
         Swal.fire({

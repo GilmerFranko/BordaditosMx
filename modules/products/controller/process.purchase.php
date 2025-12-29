@@ -201,7 +201,7 @@ if (!isset($_GET['variant_id']) or empty($_GET['variant_id']))
 }
 if (!isset($_GET['size_sweater_1']) or empty($_GET['size_sweater_1']))
 {
-  $msg[] = 'No ha seleccionado un talle de la sudadera 1';
+  $msg[] = 'No ha seleccionado la talla de la sudadera 1';
 }
 if (!isset($_GET['size_sweater_2']) or empty($_GET['size_sweater_2']))
 {
