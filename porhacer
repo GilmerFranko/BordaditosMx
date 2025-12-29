@@ -1,0 +1,16 @@
+URGENTE
+1 Permitir cambiar la fecha de entrega de un producto facilmente ( Para despues, primero decirle al cliente que esta automatico)
+
+2 Permitir cambiar facilmente Compra hoy y recibe el dia: Lunes 08 De Diciembre
+
+3 Hacer funcionar buscador de productos
+
+MODERADO
+Pagina rastrear
+
+PARA DESPUES
+1 funcionalidad para borrar un producto y sus dependencias
+
+2 que cuando se genere un pedido se deba generar un numero de pedido aleatorio en otra columna para no usar el id princiapl 
+
+3 al intentar subir las tres imagenes de una variante directamente en el formulario, sucede un error y se sube la imagen principal pero no se registra en la bd

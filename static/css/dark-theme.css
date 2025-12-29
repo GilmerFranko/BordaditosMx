@@ -1,0 +1,137 @@
+ /** Colores Tema Oscuro */
+
+ footer
+ {
+  background-color:#232323 !important;
+}
+html
+{
+  color: white;
+}
+
+input
+{
+  color: #9AA0A6 !important;
+}
+
+body {
+  background-color: #202123 !important;
+  color: #fff !important;
+  nav {
+    background-color: #26A69A;
+    border-bottom: solid 4px var(--primary);
+  }
+  .card {
+    background-color: rgba(255,255,255,0.2);
+  }
+  .divider {
+    opacity: 0.2;
+  }
+  .sidenav
+  {
+    background-color: #37474f;
+  }
+    /*.sidenav {
+      background-color: #2D2D31;
+      li {
+        a {
+          &:not(.subheader){
+            color: #ffda00;
+            &:hover {
+              background-color: #3B4043;
+            }
+          }
+          &.subheader {
+            color:#9AA0A6;
+          }
+          .material-icons {
+            color: #9AA0A6;
+          }
+        }
+      }
+    }*/
+    .collection {
+      border: 1px solid rgba(255,255,255,0.2);
+      .collection-item {
+        background-color: rgba(255,255,255,0.2);
+        border-bottom: 1px solid rgba(255,255,255,0.2);;
+      }
+    }
+    input
+    {
+      -webkit-color: #9AA0A6;
+    }
+
+    textarea
+    {
+      color: #9AA0A6;
+    }
+
+    label
+    {
+      color: white;
+    }
+    span
+    {
+      color: #fff !important;
+    }
+    a{
+      color:#ffda00;
+    }
+
+    .swal2-html-container a
+    {
+      color:#039be5;
+    }
+  }
+
+  .brand-logo
+  {
+    font-size: inherit !important;
+  }
+
+  nav .brand-logo.center {
+    transform: translateX(-65%);
+  }
+
+  .dropdown-content.select-dropdown {
+    background-color: #2D2D31;
+  }
+  .toast
+  {
+    background-color: white;
+    color: black;
+  }
+
+  .dropdown-content li
+  {
+    background-color: #2D2D31; 
+  }
+
+  .sidenav-header {
+    height: 64px;
+    color: white;
+    background: inherit;
+    background: #37474f;
+}
+
+.sidenav .collapsible-header,
+.sidenav.fixed .collapsible-header {
+    line-height: 48px;
+}
+
+.sidenav li {
+    line-height: inherit;
+}
+.dropdown-content li>a,
+.dropdown-content li>span,
+.sidenav li>a,
+.sidenav li>a>i.material-icons {
+    color: #fbfbfb;
+}
+
+
+  .collection .collection-item, .dropdown-content, .sidenav .collapsible-body, .sidenav.fixed .collapsible-body, .sidenav {
+    background: #37474f;
+  }
+  /* FIN Colores Tema Oscuro */

@@ -1,0 +1,71 @@
+/*
+* @Author: GilmerFranko
+* @Date:   2024-03-26 03:54:19
+* @Last Modified by:   GilmerFranko
+* @Last Modified time: 2024-03-26 11:52:29
+*/
+.card-wallet
+  {
+    display: flex;
+    align-items: center;
+  }
+  .card-wallet .wallet-icon
+  {
+    margin: 0 10px 0 0;
+  }
+  .card-wallet .wallet-icon i
+  {
+    color: #7dd957 ;
+    font-size: 7rem !important;
+  }
+  .card
+  {
+    background-color: #232323 !important;
+    border-bottom: solid 3px #7dd957;
+  }
+
+  nav
+  {
+    border-bottom: solid 2px #7dd957 !important;
+  }
+  .card {
+    background-color: #232323 !important;
+    border-bottom: solid 3px #7dd957;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .btn-primary
+   {
+    background-color: #7dd957 !important;
+    color:black !important;
+  }
+
+
+  .card:hover {
+    transform: translateX(5px);
+  }
+
+  /* Mango del scroll */
+  ::-webkit-scrollbar-thumb {
+    background-color: #7dd957; /* Color deseado */
+    border-radius: 6px;
+  }
+
+  /* Cambio de color al pasar el mouse sobre el mango */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #7dd957; /* Cambia el color al pasar el mouse */
+  }
+
+  input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly])
+  {
+  	border-bottom: 1px solid #7dd957;
+  	box-shadow: 0 1px 0 0 #7dd957;
+  }
+  input:not([type]):focus:not([readonly]) + label, input[type=text]:not(.browser-default):focus:not([readonly]) + label, input[type=password]:not(.browser-default):focus:not([readonly]) + label, input[type=email]:not(.browser-default):focus:not([readonly]) + label, input[type=url]:not(.browser-default):focus:not([readonly]) + label, input[type=time]:not(.browser-default):focus:not([readonly]) + label, input[type=date]:not(.browser-default):focus:not([readonly]) + label, input[type=datetime]:not(.browser-default):focus:not([readonly]) + label, input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label, input[type=tel]:not(.browser-default):focus:not([readonly]) + label, input[type=number]:not(.browser-default):focus:not([readonly]) + label, input[type=search]:not(.browser-default):focus:not([readonly]) + label, textarea.materialize-textarea:focus:not([readonly]) + label{
+  	color: #7dd957 !important;
+  }
+  
+  /** Colores txto */
+  .green-text {
+    color: #7dd957 !important;
+  }

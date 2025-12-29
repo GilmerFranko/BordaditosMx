@@ -1,0 +1,59 @@
+# Redireccionar a HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Deshabilitar la ejecución de scripts PHP en directorios no permitidos
+# <Directory "ruta/al/directorio/no/permitido">
+#  Order deny,allow
+#  Deny from all
+# </Directory>  # Mantén esto comentado a menos que sea necesario
+
+# Protección contra hotlinking (considera ajustar para subdominios)
+# RewriteEngine On
+# RewriteCond %{HTTP_REFERER} !^https://(www\.)?tudominio\.com [NC]
+# RewriteRule \.(jpg|jpeg|png|gif|swf|flv|pdf)$ -F [NC,L]
+
+# Deshabilitar el listado de archivos
+Options -Indexes
+
+# Protección contra inyección de SQL
+<IfModule mod_php5.c>
+  AutoPrependFile .htaccess.prepend
+</IfModule>
+
+# Protección contra XSS
+<IfModule mod_php5.c>
+  AutoPrependFile .htaccess.prepend
+</IfModule>
+
+# Protección contra Cross-Site Request Forgery (CSRF)
+<IfModule mod_csrf_protection.c>
+  CsrfEnable On
+  CsrfTokenHeader Name X-CSRF-TOKEN
+  CsrfCookieName X-CSRF-TOKEN
+  CsrfExpiration 10800 # 3 horas
+</IfModule>
+
+RewriteEngine On
+
+# Redirecciona URL cron.php a cron.php
+RewriteRule ^cron.php$ cron.php [NC,L,QSA]
+
+# Redirecciona URLs para "ordenntes de reglas más generales
+RewriteRule ^pedido/([^/]+)$ index.php?app=products&section=summary&order_id=$1 [NC,L,QSA]
+
+
+# Reglas generales de reescritura
+# redirige a la sección principal de cada app si no se especifica sección
+RewriteRule ^(/)$ index.php?app=$1&section=null0 [NC,QSA,L]
+# redirige a la sección principal de cada app si no se especifica sección con barra al final
+RewriteRule ^([^/]+)/$ index.php?app=$1&section=null0 [NC,L,QSA]
+# redirige a la sección principal de cada app si no se especifica sección sin barra al final
+RewriteRule ^([^/]+)$ index.php?app=$1&section=null0 [NC,L,QSA]
+# redirige a la sección principal de cada app si no se especifica sección
+RewriteRule ^([^/]+)/([^/]+)$ index.php?app=$1&section=$2 [NC,L,QSA]
+
+
+# Pagina no encontrada
+ErrorDocument 404 /index.php/nofound

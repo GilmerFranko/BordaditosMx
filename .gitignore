@@ -1,0 +1,13 @@
+error.log
+filestore
+.phpintel
+*.png
+*.jpg
+*.gif
+*.mp4
+*.zip
+*.webp
+*.log
+*.env
+includes/library/rachet
+vendor

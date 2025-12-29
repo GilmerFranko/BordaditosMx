@@ -1,0 +1,51 @@
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
+
+.text-red {
+  color: var(--red) !important;
+}
+
+.text-green {
+  color: var(--green) !important;
+}
+
+.text-orange {
+  color: var(--primary) !important;
+}
+
+.text-darkgray {
+  color: var(--darkgray) !important;
+}
+
+.col.s12 > .btn {
+  width: 100%;
+}
+
+.btn.w100 {
+  width: 100%;
+}
+
+.btn.w80 {
+  width: 80%;
+}
+
+.btn.w50 {
+  width: 49%;
+}
+
+.btn.w47 {
+  width: 47%;
+}
+
+.w90 {
+  width: 90%;
+}
+
+/** GENERAL **/
+.first-section {
+  margin-top: 20px;
+  margin: 0 15px;
+}
+
+a {
+  color: white;
+}
