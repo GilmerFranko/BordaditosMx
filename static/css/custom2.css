@@ -163,14 +163,25 @@ header {
   overflow: hidden;
   border: 4px solid white;
   padding: 10px;
+  /* Nuevos ajustes */
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Hace que todas midan lo mismo en la misma fila */
 }
 
 .product-image {
   width: 100%;
-  height: 180px;
+  height: 150px; /* Reducido un poco para móviles */
   background-color: #3d3d3d;
   overflow: hidden;
   border-radius: 20px;
+  flex-shrink: 0; /* Evita que la imagen se aplaste */
+}
+
+@media (min-width: 768px) {
+  .product-image {
+    height: 180px; /* Altura original para pantallas grandes */
+  }
 }
 
 .product-image img {
@@ -180,14 +191,26 @@ header {
 }
 
 .product-info {
-  padding: 15px;
+  padding: 10px 5px; /* Reducido para ahorrar espacio */
   color: white;
+  flex-grow: 1; /* Esto hace que la sección de info ocupe el espacio disponible */
 }
 
 .product-title {
-  font-size: 16px;
+  font-size: 14px; /* Un poco más pequeño para móvil */
   font-weight: bold;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
+  /* Truco para truncar texto a 2 líneas si es muy largo */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .product-title {
+    font-size: 16px;
+  }
 }
 
 .shipping-badge {
@@ -199,21 +222,43 @@ header {
 .price-container {
   background-color: #efefef;
   border-radius: 50px;
+  padding: 5px 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: auto; /* Empuja el precio al fondo de la tarjeta */
+  .price-container {
+    background-color: unset !important;
+  }
 }
 
 .price-old {
   color: #ff3131;
   text-decoration: line-through;
-  font-size: 12px;
-  position: relative;
-  top: -6px;
+  font-size: 10px;
 }
 
 .price-new {
   color: #000000;
-  font-size: 20px;
+  font-size: 16px; /* Ajustado para móvil */
   font-weight: bold;
-  margin-right: 15px;
+}
+
+@media (max-width: 480px) {
+  .container-product {
+    padding: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .price-new {
+    font-size: 20px;
+  }
+  .price-old {
+    font-size: 12px;
+  }
 }
 
 .price-single {

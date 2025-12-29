@@ -51,7 +51,7 @@ require Core::view('menu', 'core');
 		<div class="row g-3">
 			<?php if ($products['total'] > 0) : ?>
 				<?php foreach ($products['data'] as $product) : ?>
-					<div class="col-6" style="cursor: pointer;" onclick="window.location.href='<?= gLink('products/view.product', ['product_id' => $product['id']]) ?>'">
+					<div class="col-6 container-product" style="cursor: pointer;" onclick="window.location.href='<?= gLink('products/view.product', ['product_id' => $product['id']]) ?>'">
 						<div class="product-card">
 							<div class="product-image">
 								<img src="<?= $config['products_url'] . '/' . $product['image_url'] ?>" alt="<?= $product['name'] ?>">

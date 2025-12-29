@@ -6,8 +6,10 @@
 <header class="" style="background-color: var(--pink-primary);">
   <div class="container header-pink">
     <div class="container-fluid">
-      <a class="nav-link active d-inline" href="<?php echo $extra->generateUrl('admin', 'configuration') ?>" role="tab" aria-controls="config-tab-pane" aria-selected="true">Configuración -</a>
-      <a class="nav-link active d-inline" href="<?php echo $extra->generateUrl('members', 'account') ?>" role="tab" aria-controls="config-tab-pane" aria-selected="true">Cuenta</a>
+      <?php if ($session->is_admod == 1) : ?>
+        <a class="nav-link active d-inline" href="<?php echo $extra->generateUrl('admin', 'configuration') ?>" role="tab" aria-controls="config-tab-pane" aria-selected="true">Configuraci&oacuten -</a>
+        <a class="nav-link active d-inline" href="<?php echo $extra->generateUrl('members', 'account') ?>" role="tab" aria-controls="config-tab-pane" aria-selected="true">Cuenta</a>
+      <?php endif; ?>
       <div class="d-flex justify-content-between align-items-center py-3 px-3">
         <a href="<?= gLink('core', 'home') ?>" style="text-decoration: none;">
           <div class="d-flex align-items-center">
@@ -15,7 +17,7 @@
               <i class="bi bi-infinity"></i>
             </div>
             <div class="brand-text">
-              <div class="fw-bold">Desafíos Mexico</div>
+              <div class="fw-bold">Desaf&iacuteos Mexico</div>
               <div class="small">Web Oficial</div>
             </div>
           </div>
