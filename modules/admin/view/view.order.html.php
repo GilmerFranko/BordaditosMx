@@ -206,7 +206,9 @@ require Core::view('head', 'core');
           </div>
           <p><strong>Nombre:</strong> <?= $order['customer_name'] ?></p>
           <p class="whatsapp-link">
-            <i class="material-icons tiny">chat</i> &nbsp; <?= $order['customer_whatsapp'] ?>
+            <a href="https://wa.me/<?php echo preg_replace('/[^0-9]/', '', $order['customer_whatsapp']); ?>" target="_blank" class="wa-link">
+              <?php echo htmlspecialchars($order['customer_whatsapp']); ?>
+            </a>
           </p>
 
           <div class="section-title" style="margin-top:30px">

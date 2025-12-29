@@ -145,7 +145,7 @@ else
   {
     $productId = (int)$_GET['product_id'];
     $product = loadClass('admin/products')->getProductById($productId);
-    $products_images = loadClass('admin/products')->getProductImages($productId);
+    //$products_images = loadClass('admin/products')->getProductImages($productId);
     error_log(var_export($products_images, true));
   }
   else
