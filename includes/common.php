@@ -57,15 +57,6 @@ require BG_LIB . 'mysqlconnect.class.php';
 /* Modelo padre */
 require BG_LIB . 'model.class.php';
 
-/* Modulo Padre */
-
-//----------Esto supone debe ir en otro archivo por separado, luego pienso como hacer que sea automatizado ------//
-/* Archivos que se encargarán de administrar los modulos */
-require BG_LIB  . 'module.class.php';
-require BG_LIB  . 'work.module.class.php';
-require BG_LIB  . 'core.module.class.php';
-require BG_LIB  . 'model_db.class.php';
-require BG_MODT . 'autoload_tables_model.php';
 /*------------------------------*/
 /* Funciones especiales */
 require BG_INC . 'functions.php';
