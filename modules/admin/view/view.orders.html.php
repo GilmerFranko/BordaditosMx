@@ -15,7 +15,6 @@ require Core::view('head', 'core');
 
 <style>
   #sectionOrders {
-    padding: 20px 0;
     background-color: #f9f9f9;
     min-height: 100vh;
   }
@@ -114,7 +113,7 @@ require Core::view('head', 'core');
 </style>
 
 <section id="sectionOrders">
-  <div class="container">
+  <div class="">
     <h3 class="grey-text text-darken-3 font-weight-light">Gestión de Pedidos</h3>
 
     <!-- Contenedor de Filtros -->
