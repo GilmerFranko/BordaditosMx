@@ -42,17 +42,19 @@ if ($sModule != 'admin'): ?>
 					<div class="nav-item">
 						<a href="" class="waves-effect waves-blue">
 							<i class="bi bi-cart3"></i>
+							<div class="small">Carrito</div>
 						</a>
 					</div>
 					<div class="nav-item active">
 						<a href="<?= gLink('core', 'home') ?>" class="waves-effect waves-blue">
 							<i class="bi bi-house-fill"></i>
+							<div class="small">Inicio</div>
 						</a>
 					</div>
 					<div class="nav-item">
 						<a href="<?= gLink('rastrear') ?>" class="waves-effect waves-blue">
 							<i class="bi bi-truck"></i>
-							<div class="small"></div>
+							<div class="small">Rastrear</div>
 						</a>
 					</div>
 				</div>
