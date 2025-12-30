@@ -61,7 +61,7 @@ require Core::view('head', 'core');
                   <img src="<?= $config['products_url'] . '/' . $v['images']['data'][0]['image_url'] ?>" alt="Sudadera 1" class="img-fluid">
                 </div>
               </div>
-              <div class="col">
+              <div class="col talla">
                 <div class="d-flex align-items-center gap-3">
                   <span class="fs-4 fw-bold">Talla:</span>
                   <?php
@@ -103,7 +103,7 @@ require Core::view('head', 'core');
                   <img src="<?= $config['products_url'] . '/' . $v['images']['data'][1]['image_url'] ?>" alt="Sudadera 2" class="img-fluid">
                 </div>
               </div>
-              <div class="col">
+              <div class="col talla">
                 <div class="d-flex align-items-center gap-3">
                   <span class="fs-4 fw-bold">Talla:</span>
                   <?php
@@ -288,7 +288,6 @@ require Core::view('head', 'core');
     }
 
     .size-selection .row {
-      flex-direction: column;
       text-align: center;
     }
 
@@ -309,6 +308,77 @@ require Core::view('head', 'core');
     border: 2px solid #ff69b4;
     box-shadow: 0 6px 15px rgba(255, 20, 147, 0.5);
     transform: scale(1.1);
+  }
+
+  @media (max-width: 400px) {
+
+    /* 1. Reducción de Opciones de Color */
+    .color-option {
+      padding: 8px !important;
+      /* Antes 15px */
+      border-width: 2px !important;
+      /* Borde un poco más delgado */
+    }
+
+    .color-option p {
+      font-size: 10px !important;
+      /* Texto del color más pequeño */
+      margin-top: 5px !important;
+    }
+
+    /* Ajuste para que los cuadros de color no sean tan anchos en móvil */
+    [style*="width: 175px"] {
+      width: 120px !important;
+    }
+
+    /* 2. Reducción de la Vista Previa de la Sudadera */
+    .hoodie-preview {
+      width: 90px !important;
+      /* Antes 150px */
+      min-width: 90px !important;
+      min-height: 100px !important;
+      /* Antes 120px */
+      padding: 5px !important;
+      /* Antes 10px */
+    }
+  }
+
+  /* Ajustes para pantallas pequeñas (menos de 560px) */
+  @media (max-width: 560px) {
+
+    /* 3. Reducción de la sección Talla (Textos y Botones) */
+    .talla {
+      span.fs-4 {
+        font-size: 1.2rem !important;
+        /* "Talla:" más pequeño */
+      }
+
+      .d-flex.gap-3 {
+        gap: 6px !important;
+        /* Botones más juntos */
+      }
+
+      .btn-size {
+        padding: 6px 20px !important;
+        /* Botones más compactos */
+        font-size: 1rem !important;
+        border-radius: 15px !important;
+      }
+
+    }
+
+    .alert-banner {
+      font-size: 0.9rem !important;
+    }
+
+    .btn-buy {
+      font-size: 1.1rem !important;
+    }
+
+    /* Extra: Ajuste de títulos de sección para que no ocupen tanto espacio */
+    .section-title h2 {
+      font-size: 0.9rem !important;
+    }
   }
 </style>
 
