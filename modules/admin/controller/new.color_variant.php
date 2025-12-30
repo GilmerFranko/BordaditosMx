@@ -77,13 +77,15 @@ if (isset($_GET['do']) && $_GET['do'] == 'new')
     }
     else
     {
+      $msg2 = [];
+
       // Subir imágenes para sudadera 1
       if (isset($_FILES['hoodie1']) && isset($_FILES['hoodie1']['error']) && $_FILES['hoodie1']['error'] == 0 && $_FILES['hoodie1']['size'] > 0)
       {
         $newHoodie1 = loadClass('core/extra')->uploadImage($_FILES['hoodie1'], $config['products_path']);
         if (!$newHoodie1)
         {
-          $msg[] = 'No se pudo subir la imagen Sudadera 1';
+          $msg2[] = 'No se pudo subir la imagen Sudadera 1';
         }
       }
 
@@ -93,27 +95,9 @@ if (isset($_GET['do']) && $_GET['do'] == 'new')
         $newHoodie2 = loadClass('core/extra')->uploadImage($_FILES['hoodie2'], $config['products_path']);
         if (!$newHoodie2)
         {
-          $msg[] = 'No se pudo subir la imagen Sudadera 2';
+          $msg2[] = 'No se pudo subir la imagen Sudadera 2';
         }
       }
-      /*$hoodieInputs = ['hoodie1', 'hoodie2'];
-      $uploadedHoodies = [];
-      foreach ($hoodieInputs as $inputName)
-      {
-        if (isset($_FILES[$inputName]) && isset($_FILES[$inputName]['error']) && $_FILES[$inputName]['error'] == 0 && $_FILES[$inputName]['size'] > 0)
-        {
-          $uploaded = loadClass('core/extra')->uploadImage($_FILES[$inputName], $config['products_path']);
-          if ($uploaded)
-          {
-            $uploadedHoodies[] = $uploaded;
-          }
-          else
-          {
-            $msg[] = 'No se pudo subir la imagen ' . $inputName;
-          }
-        }
-      }*/
-
       // Insertar imágenes de sudadera
       if (isset($newHoodie1))
       {
@@ -124,6 +108,14 @@ if (isset($_GET['do']) && $_GET['do'] == 'new')
       {
         Core::model('db', 'core')->smartInsert('variants_images', ['color_variant_id' => $variant_id, 'image_url' => $newHoodie2, 'num_image' => 2]);
       }
+
+      if (empty($msg2))
+      {
+        $msg2[] = 'Variante creada con exito';
+      }
+      setToast([$msg2]);
+      redirect('admin/view.products');
+      exit;
     }
 
     setToast([$msg]);
