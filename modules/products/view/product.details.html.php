@@ -100,7 +100,6 @@
     background: white;
     overflow: hidden;
     padding: 0 !important;
-    margin-top: 30px;
   }
 
   /* Pink Header Section */
@@ -109,7 +108,7 @@
     padding: 30px 20px 40px;
     text-align: center;
     position: relative;
-    border-radius: 30px;
+    border-radius: 0 0 30px 30px;
   }
 
   .product-image-details-container {

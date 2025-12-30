@@ -12,11 +12,6 @@
 
 require Core::view('head', 'core');
 ?>
-<!-- Header -->
-<?php require Core::view('menu', 'core'); ?>
-<!-- / Header -->
-
-
 <section class="first-section">
 
   <?php require Core::view('product.details', 'products'); ?>
