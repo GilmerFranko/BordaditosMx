@@ -40,14 +40,20 @@ if ($sModule != 'admin'): ?>
 			<div class="container-fluid">
 				<div class="d-flex justify-content-around align-items-center">
 					<div class="nav-item">
-						<i class="bi bi-cart3"></i>
+						<a href="" class="waves-effect waves-blue">
+							<i class="bi bi-cart3"></i>
+						</a>
 					</div>
 					<div class="nav-item active">
-						<i class="bi bi-house-fill"></i>
+						<a href="<?= gLink('core', 'home') ?>" class="waves-effect waves-blue">
+							<i class="bi bi-house-fill"></i>
+						</a>
 					</div>
 					<div class="nav-item">
-						<i class="bi bi-truck"></i>
-						<div class="small">Rastrear</div>
+						<a href="<?= gLink('rastrear') ?>" class="waves-effect waves-blue">
+							<i class="bi bi-truck"></i>
+							<div class="small"></div>
+						</a>
 					</div>
 				</div>
 			</div>

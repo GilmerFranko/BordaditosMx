@@ -739,6 +739,9 @@ if(count($_SESSION['lastUrl'])>2) array_shift($_SESSION['lastUrl']);*/
             'anuncios' =>
             [
                 'favoritos' => ['forums', 'my.favorites'],
+            ],
+            'rastrear' => [
+                'null0' => ['products', 'order_tracking']
             ]
 
 

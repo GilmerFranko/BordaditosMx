@@ -15,9 +15,7 @@ $page['name'] = 'Proceso de compra - ' . $product['name'];
 require Core::view('head', 'core');
 
 ?>
-<!-- Header -->
-<?php require Core::view('menu', 'core'); ?>
-<!-- / Header -->
+
 
 <section class="first-section">
   <div class="container py-4">
