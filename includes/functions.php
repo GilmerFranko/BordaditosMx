@@ -472,3 +472,65 @@ function cleanSlug($text, $maxLength = 200)
 
   return $text === '' ? 'n-a' : $text;
 }
+
+// Formatear fecha
+function getFiveDaysLater()
+{
+
+  $fechaInput = time();
+
+  // 1. Crear el objeto DateTime detectando el tipo de entrada
+  if (is_numeric($fechaInput))
+  {
+    // El @ indica que es un Unix Timestamp
+    $fecha = new DateTime("@$fechaInput");
+    // Sumale 5 Dias
+    $fecha->modify('+5 days');
+    // Ajustar a la zona horaria local (opcional, por defecto es UTC en timestamps)
+    $fecha->setTimezone(new DateTimeZone(date_default_timezone_get()));
+  }
+  else
+  {
+    $fecha = DateTime::createFromFormat('d-m-Y', $fechaInput);
+  }
+
+  if (!$fecha) return "Formato de fecha inválido";
+
+  // 2. Definir los diccionarios de traducción
+  $diasSemana = [
+    'Sunday'    => 'Domingo',
+    'Monday'    => 'Lunes',
+    'Tuesday'   => 'Martes',
+    'Wednesday' => 'Miércoles',
+    'Thursday'  => 'Jueves',
+    'Friday'    => 'Viernes',
+    'Saturday'  => 'Sábado'
+  ];
+
+  $meses = [
+    'January'   => 'Enero',
+    'February'  => 'Febrero',
+    'March'     => 'Marzo',
+    'April'     => 'Abril',
+    'May'       => 'Mayo',
+    'June'      => 'Junio',
+    'July'      => 'Julio',
+    'August'    => 'Agosto',
+    'September' => 'Septiembre',
+    'October'   => 'Octubre',
+    'November'  => 'Noviembre',
+    'December'  => 'Diciembre'
+  ];
+
+  // 3. Extraer las partes de la fecha en inglés
+  $nombreDiaIngles = $fecha->format('l'); // Ejemplo: Monday
+  $numeroDia = $fecha->format('d');       // Ejemplo: 08
+  $nombreMesIngles = $fecha->format('F'); // Ejemplo: December
+
+  // 4. Traducir usando nuestros arreglos
+  $diaTraducido = $diasSemana[$nombreDiaIngles];
+  $mesTraducido = $meses[$nombreMesIngles];
+
+  // 5. Retornar el formato final: Lunes 08 de Diciembre
+  return "$diaTraducido $numeroDia de $mesTraducido";
+}

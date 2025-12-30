@@ -48,7 +48,7 @@ require Core::view('head', 'core');
             </svg>
             <h2 class="shipping-title mb-0">ENVIO GRATIS 🇲🇽</h2>
           </div>
-          <p class="shipping-date mb-0">Recibes tu pedido el día: <strong>Lunes 08 De Diciembre</strong></p>
+          <p class="shipping-date mb-0">Recibes tu pedido el día: <strong><?= getFiveDaysLater() ?></strong></p>
         </div>
 
         <!-- Delivery Options -->

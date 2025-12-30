@@ -36,7 +36,7 @@
       <strong>ENVIO GRATIS 🇲🇽</strong>
     </div>
     <div class="shipping-date">
-      Compra hoy y recibe el día: <strong>Lunes 08 De Diciembre</strong>
+      Compra hoy y recibe el día: <strong><?= getFiveDaysLater() ?></strong>
     </div>
 
     <!-- Description Section -->
