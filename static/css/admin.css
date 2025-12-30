@@ -1,8 +1,11 @@
+:root {
+  --primary-dark: #212121;
+  --accent-color: #26a69a;
+  --bg-body: #f4f7f6;
+}
+
 body {
-  /*padding-top: 64px;*/
-  background-color: whitesmoke;
-  /*background-color: #37474f;
-  color: white;*/
+  background-color: var(--bg-body);
 }
 
 a {
