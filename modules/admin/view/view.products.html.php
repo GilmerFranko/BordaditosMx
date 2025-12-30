@@ -52,7 +52,11 @@ require Core::view('head', 'core');
               <td>
                 <div class="inline">
                   <a href="<?php echo Core::model('extra', 'core')->generateUrl('admin', 'edit.product', null, array('product_id' => $prod['id'])); ?>" title="Editar"><i class="material-icons">edit</i></a>
-                  <a href="#" onclick="admin.products.delete('<?php echo $prod['id']; ?>'); return false;" title="Eliminar"><i class="material-icons">delete</i></a>
+                  <a href="<?= gLink('admin/delete.product', ['product_id' => $prod['id']]) ?>"
+                    onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?');"
+                    title="Eliminar">
+                    <i class="material-icons">delete</i>
+                  </a>
                 </div>
               </td>
             </tr>
@@ -71,6 +75,11 @@ require Core::view('head', 'core');
     <!--fin_paginador-->
   </div>
 </section>
+
+<script>
+
+</script>
+
 
 <!-- JS adicional -->
 <script type="text/javascript" src="<?php echo $config['base_url']; ?>/static/js/admin.js" />

@@ -26,6 +26,9 @@ class Products extends Model
       $where[] = 'p.`name` LIKE "%' . $params['name'] . '%"';
     }
 
+    // Filtrar por estado
+    $where[] = 'p.`deleted_at` IS NULL';
+
     // Ordenar por fecha (ascendente o descendente)
     $order_by = !empty($params['order_by']) && in_array($params['order_by'], ['asc', 'desc'])
       ? $params['order_by']
