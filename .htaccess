@@ -43,6 +43,8 @@ RewriteRule ^cron.php$ cron.php [NC,L,QSA]
 # Redirecciona URLs para "ordenntes de reglas más generales
 RewriteRule ^pedido/([^/]+)$ index.php?app=products&section=summary&order_id=$1 [NC,L,QSA]
 
+# Redirecciona URLs para "ordenntes de reglas más generales
+RewriteRule ^rastrear/([^/]+)$ index.php?app=products&section=order_tracking&order_id=$1 [NC,L,QSA]
 
 # Reglas generales de reescritura
 # redirige a la sección principal de cada app si no se especifica sección
