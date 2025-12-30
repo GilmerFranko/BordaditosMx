@@ -244,8 +244,8 @@ if (empty($msg))
   if (!empty($msg1))
   {
     setTI([$msg]);
-    //redirect('core/home-guest', ['variant_id' => $variant_id]);
-    //exit;
+    redirect('core/home-guest', ['variant_id' => $variant_id]);
+    exit;
   }
 }
 // Si hay errores, redirigir con mensajes
