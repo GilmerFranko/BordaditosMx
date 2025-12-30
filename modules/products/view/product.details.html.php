@@ -266,6 +266,14 @@
 
     .feature-icons {
       margin-top: 20px;
+      flex-direction: row;
+      justify-content: center;
+      justify-content: space-between;
+
+      .feature-item {
+        flex-direction: column;
+        gap: 0px;
+      }
     }
   }
 </style>
