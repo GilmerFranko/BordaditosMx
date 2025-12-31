@@ -44,9 +44,10 @@
       <div class="row">
         <div class="col-md-8">
           <h2 class="section-title">DESCRIPCION</h2>
-          <p class="description-text">
+          <p class="description-text" style="margin-bottom: 5px">
             <?= $product['description'] ?>
           </p>
+          <img src="<?= $config['images_url'] . '/tipos-de-telas.jpeg' ?>" alt="tipos de telas" width="260">
         </div>
         <div class="col-md-4">
           <!-- Beneficios con distribución mejorada -->
@@ -227,8 +228,9 @@
 
   .feature-item small {
     font-size: 0.75rem;
-    font-weight: bold;
+    font-weight: 500;
     color: #666;
+    font-family: Arial;
   }
 
   /* --- NUEVA SECCIÓN DE PAGOS --- */
