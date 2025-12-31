@@ -6,7 +6,7 @@
  * @author Gilmer Franco <gil2017.com@gmail.com>
  *=======================================================
  *
- * @Description Extiensión de la vista de detalles de un producto
+ * @Description Extensión de la vista de detalles de un producto
  *
  */
 
@@ -49,6 +49,7 @@
           </p>
         </div>
         <div class="col-md-4">
+          <!-- Beneficios con distribución mejorada -->
           <div class="feature-icons">
             <div class="feature-item">
               <i class="bi bi-shield-check"></i>
@@ -67,18 +68,24 @@
       </div>
     </div>
 
-    <!-- Payment Methods -->
+    <!-- New Payment Methods Section -->
     <div class="payment-section">
-      <div class="payment-box">
-        <small class="text-muted">Pago según garantizado</small>
-        <div class="payment-icons">
-          <i class="bi bi-credit-card-2-front"></i>
-          <span>VISA</span>
-          <i class="bi bi-circle-fill text-danger"></i>
-          <i class="bi bi-circle-fill text-warning"></i>
-          <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg" alt="PayPal" class="paypal-logo">
+      <fieldset class="contenedor-pagos-nuevo">
+        <legend class="titulo-pagos-nuevo">
+          <svg class="icono-candado-nuevo" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+          </svg>
+          Pago seguro garantizado
+        </legend>
+
+        <div class="iconos-flex-nuevo">
+          <img class="metodo-pago-nuevo" src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa">
+          <img class="metodo-pago-nuevo" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+          <img class="metodo-pago-nuevo" src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+          <img class="metodo-pago-nuevo" src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Cash_App_RB_F1_Team_Logo.svg" alt="Amex" onerror="this.src='https://img.icons8.com/color/48/000000/amex.png'">
+          <img class="metodo-pago-nuevo logo-oxxo-nuevo" src="https://upload.wikimedia.org/wikipedia/commons/6/66/Oxxo_Logo.svg" alt="OXXO">
         </div>
-      </div>
+      </fieldset>
     </div>
   </div>
 </div>
@@ -224,34 +231,54 @@
     color: #666;
   }
 
-  /* Payment Section */
+  /* --- NUEVA SECCIÓN DE PAGOS --- */
   .payment-section {
-    padding: 20px;
+    padding: 25px 20px;
     background-color: #fff;
+    max-width: 450px;
   }
 
-  .payment-box {
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: left;
+  .contenedor-pagos-nuevo {
+    border: 1.5px solid #d1d5db;
+    border-radius: 12px;
+    padding: 20px 15px;
+    background-color: white;
   }
 
-  .payment-icons {
+  .titulo-pagos-nuevo {
+    color: #4b5563;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0 10px;
     display: flex;
     align-items: center;
+    gap: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .icono-candado-nuevo {
+    width: 14px;
+    height: 14px;
+    fill: #10b981;
+  }
+
+  .iconos-flex-nuevo {
+    display: flex;
+    justify-content: space-between;
+    /* Distribución total */
+    align-items: center;
     gap: 10px;
-    margin-top: 10px;
-    font-size: 1.2rem;
-    font-weight: bold;
   }
 
-  .payment-icons i {
-    font-size: 1.5rem;
+  .metodo-pago-nuevo {
+    height: 24px;
+    width: auto;
+    object-fit: contain;
   }
 
-  .paypal-logo {
-    height: 20px;
+  .logo-oxxo-nuevo {
+    height: 18px;
   }
 
   /* Responsive */
@@ -267,13 +294,24 @@
     .feature-icons {
       margin-top: 20px;
       flex-direction: row;
-      justify-content: center;
       justify-content: space-between;
+      width: 100%;
+    }
 
-      .feature-item {
-        flex-direction: column;
-        gap: 0px;
-      }
+    .feature-item {
+      flex-direction: column;
+      text-align: center;
+      gap: 5px;
+      flex: 1;
+    }
+
+    .feature-item i {
+      font-size: 1.5rem;
+    }
+
+    .payment-section {
+      padding: 0;
+      max-width: 100%;
     }
   }
 </style>
