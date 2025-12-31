@@ -16,7 +16,7 @@ require Core::view('head', 'core');
 
   <?php require Core::view('product.details', 'products'); ?>
 
-  <div class="container py-4">
+  <div class="py-4">
     <form id="purchaseForm" action="<?= gLink('products/process.purchase') ?>" method="GET">
       <!-- Color Selection Section -->
       <div class="section-title mb-4">
@@ -59,15 +59,17 @@ require Core::view('head', 'core');
               <div class="col talla">
                 <div class="d-flex align-items-center gap-3">
                   <span class="fs-4 fw-bold">Talla:</span>
-                  <?php
-                  $sizes = explode(',', $v['size_available']);
-                  foreach ($sizes as $size)
-                  {
-                  ?>
-                    <button class="btn-size active sweater-1"><?= $size ?></button>
-                  <?php
-                  }
-                  ?>
+                  <div style="display: flex;gap: 6px;flex-wrap: wrap;">
+                    <?php
+                    $sizes = explode(',', $v['size_available']);
+                    foreach ($sizes as $size)
+                    {
+                    ?>
+                      <button class="btn-size active sweater-1"><?= $size ?></button>
+                    <?php
+                    }
+                    ?>
+                  </div>
                 </div>
               </div>
             </div>
@@ -101,15 +103,17 @@ require Core::view('head', 'core');
               <div class="col talla">
                 <div class="d-flex align-items-center gap-3">
                   <span class="fs-4 fw-bold">Talla:</span>
-                  <?php
-                  $sizes = explode(',', $v['size_available']);
-                  foreach ($sizes as $size)
-                  {
-                  ?>
-                    <button class="btn-size active sweater-2"><?= $size ?></button>
-                  <?php
-                  }
-                  ?>
+                  <div style="display: flex;gap: 6px;flex-wrap: wrap;">
+                    <?php
+                    $sizes = explode(',', $v['size_available']);
+                    foreach ($sizes as $size)
+                    {
+                    ?>
+                      <button class="btn-size active sweater-2"><?= $size ?></button>
+                    <?php
+                    }
+                    ?>
+                  </div>
                 </div>
               </div>
             </div>
