@@ -16,7 +16,7 @@ require Core::view('head', 'core');
 
   <?php require Core::view('product.details', 'products'); ?>
 
-  <div class="py-4">
+  <div class="container py-4">
     <form id="purchaseForm" action="<?= gLink('products/process.purchase') ?>" method="GET">
       <!-- Color Selection Section -->
       <div class="section-title mb-4">
@@ -122,9 +122,10 @@ require Core::view('head', 'core');
       <?php endforeach; ?>
       <!-- Alert Banner -->
       <div class="alert-banner mb-3 active">
-        <span class="alert-icon">🚨</span>
+        <!--<span class="alert-icon">🚨</span>
         <span class="alert-text">¡¡Alerta!! ¡ÚLTIMAS PIEZAS DISPONIBLES!</span>
-        <span class="alert-icon">✓</span>
+        <span class="alert-icon">✓</span>-->
+        <img src="<?= $config['images_url'] . '/alerta-ultimas-piezas-disponibles.png' ?>" alt="Ultimas piezas disponibles">
       </div>
 
       <!-- Buy Button -->
@@ -229,7 +230,7 @@ require Core::view('head', 'core');
 
   /* Alert Banner */
   .alert-banner {
-    background-color: #2c3e50;
+    /*background-color: #2c3e50;*/
     color: white;
     padding: 15px 20px;
     border-radius: 30px;
@@ -240,7 +241,11 @@ require Core::view('head', 'core');
     align-items: center;
     justify-content: center;
     gap: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    /*box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);*/
+    img {
+      width: 100%;
+    }
   }
 
   .alert-icon {
@@ -292,6 +297,14 @@ require Core::view('head', 'core');
 
     .hoodie-preview {
       margin: 0 auto;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .alert-banner {
+      img {
+        width: 500px;
+      }
     }
   }
 

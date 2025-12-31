@@ -474,7 +474,7 @@ function cleanSlug($text, $maxLength = 200)
 }
 
 // Formatear fecha
-function getFiveDaysLater()
+function getFiveDaysLater($plusDays = 5)
 {
 
   $fechaInput = time();
@@ -485,7 +485,7 @@ function getFiveDaysLater()
     // El @ indica que es un Unix Timestamp
     $fecha = new DateTime("@$fechaInput");
     // Sumale 5 Dias
-    $fecha->modify('+5 days');
+    $fecha->modify('+' . $plusDays . ' days');
     // Ajustar a la zona horaria local (opcional, por defecto es UTC en timestamps)
     $fecha->setTimezone(new DateTimeZone(date_default_timezone_get()));
   }

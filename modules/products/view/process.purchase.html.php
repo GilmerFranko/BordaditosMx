@@ -38,30 +38,31 @@ require Core::view('head', 'core');
 
         <!-- Free Shipping Section -->
         <div class="shipping-free-section mb-4">
-          <div class="d-flex align-items-center mb-2">
-            <svg class="truck-icon me-2" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 15H25V25H5V15Z" fill="WHITE" />
-              <path d="M25 18H30L35 23V25H25V18Z" fill="WHITE" />
-              <circle cx="10" cy="28" r="2" fill="WHITE" />
-              <circle cx="30" cy="28" r="2" fill="WHITE" />
-              <path d="M3 12H5L7 20L5 25" stroke="WHITE" stroke-width="1.5" />
-            </svg>
-            <h2 class="shipping-title mb-0">ENVIO GRATIS 🇲🇽</h2>
+          <div class="d-flex align-items-center mb-2  ">
+            🚚
+            &nbsp;
+            <h2 class="shipping-title mb-0">ENV&Iacute;O GRATIS <img src="https://cdn-icons-png.flaticon.com/512/5344/5344530.png" width="24" alt="México"></h2>
           </div>
           <p class="shipping-date mb-0">Recibes tu pedido el día: <strong><?= getFiveDaysLater() ?></strong></p>
         </div>
 
         <!-- Delivery Options -->
         <div class="delivery-section mb-4">
-          <h3 class="delivery-title">Recibe con DHL o Estafeta</h3>
+          <h3 class="delivery-title">Selecciona tu paqueteria preferida</h3>
           <input type="hidden" name="shipping_method" id="selected_shipping_method" value="">
 
           <div class="delivery-logos d-flex gap-4 justify-content-center mt-3">
-            <div class="delivery-logo selectable-method" data-method="DHL">
-              <div class="dhl-box">DHL</div>
+            <div class="delivery-logo selectable-method flex-fill" data-method="DHL">
+              <div class="shipping-box">
+                <img src="<?= $config['images_url'] . '/dhl.png' ?>" alt="DHL">
+                <span class="delivery-arrival-text">Recibe el: <?= getFiveDaysLater(5) ?></span>
+              </div>
             </div>
-            <div class="delivery-logo selectable-method" data-method="Estafeta">
-              <div class="estafeta-box">Estafeta</div>
+            <div class="delivery-logo selectable-method flex-fill" data-method="DHL">
+              <div class="shipping-box">
+                <img src="<?= $config['images_url'] . '/estafeta.png' ?>" alt="DHL">
+                <span class="delivery-arrival-text">Recibe el: <?= getFiveDaysLater(7) ?></span>
+              </div>
             </div>
           </div>
           <small id="shipping-error" style="color: red; display: none;">Por favor, selecciona un método de envío</small>
@@ -156,7 +157,7 @@ require Core::view('head', 'core');
   }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background-color: #f5f5f5;
     color: #333;
   }
@@ -169,37 +170,24 @@ require Core::view('head', 'core');
     border-radius: 8px;
   }
 
-  /* Header */
-  .cart-icon {
-    display: flex;
-    justify-content: center;
-    animation: slideDown 0.5s ease-out;
-  }
-
   .checkout-title {
     font-size: 1.75rem;
     font-weight: 700;
     color: #0056b3;
-    margin: 0;
   }
 
-  /* Divider */
   .divider {
     border: 0;
     border-top: 2px solid #e0e0e0;
     margin: 1.5rem 0;
   }
 
-  /* Free Shipping Section */
+  /* Envío Gratis Box */
   .shipping-free-section {
     padding: 1rem;
     background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
     border-radius: 12px;
     color: white;
-  }
-
-  .truck-icon {
-    flex-shrink: 0;
   }
 
   .shipping-title {
@@ -210,76 +198,62 @@ require Core::view('head', 'core');
 
   .shipping-date {
     font-size: 0.95rem;
-    padding-left: 48px;
   }
 
-  /* Delivery Section */
-  .delivery-section {
-    text-align: center;
-    padding: 1rem 0;
-  }
-
-  .delivery-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #0056b3;
-  }
-
+  /* Paqueterías Responsivas */
   .delivery-logos {
-    margin-top: 1rem;
+    display: flex !important;
+    flex-wrap: nowrap !important;
   }
 
   .delivery-logo {
-    padding: 1rem;
+    flex: 1;
+    min-width: 0;
+    padding: 5px;
   }
 
-  /* Estilo para el método seleccionado */
+  .shipping-box {
+    background: #fff;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .shipping-box img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 8px;
+    border-radius: 4px;
+  }
+
+  .delivery-arrival-text {
+    font-size: 0.75rem;
+    color: #333;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  /* Selección de Paquetería */
   .selectable-method {
     cursor: pointer;
-    transition: all 0.3s ease;
-    border: 4px solid transparent;
-    border-radius: 12px;
-    padding: 5px;
-    /* Espacio para el borde */
   }
 
-  .selectable-method.selected {
+  .selectable-method.selected .shipping-box {
     border-color: #ff1493;
-    /* Color rosa del tema */
-    transform: scale(1.05);
-    background: rgba(255, 20, 147, 0.1);
+    background: rgba(255, 20, 147, 0.05);
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(255, 20, 147, 0.2);
   }
 
-  .selectable-method:hover {
-    transform: translateY(-5px);
-  }
-
-  .dhl-box {
-    background: #ffcc00;
-    color: #d40511;
-    font-size: 1.5rem;
-    font-weight: 900;
-    padding: 1.5rem 3rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  }
-
-  .estafeta-box {
-    background: #fff;
-    color: #d32f2f;
-    font-size: 1.25rem;
-    font-weight: 700;
-    padding: 1.5rem 2rem;
-    border-radius: 8px;
-    border: 3px solid #d32f2f;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  }
-
-  /* Address and WhatsApp Sections */
-  .section-header {
-    margin-bottom: 0.5rem;
-  }
-
+  /* Formulario */
   .section-title {
     font-size: 1.25rem;
     font-weight: 700;
@@ -290,115 +264,40 @@ require Core::view('head', 'core');
     color: #25d366;
   }
 
-  .section-subtitle {
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.4;
-  }
-
-  .home-icon,
-  .whatsapp-icon {
-    flex-shrink: 0;
-  }
-
-  /* Form Fields */
-  .address-form,
-  .whatsapp-form {
-    padding-left: 0;
-  }
-
-  .form-field {
-    margin-bottom: 1rem;
-  }
-
   .form-label {
-    display: block;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #333;
-    margin-bottom: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #444;
   }
 
-  /* Payment Button */
+  /* Botón Pago */
   .btn-payment {
     background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 700;
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
-    display: inline-flex;
+    width: 100%;
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    max-width: 400px;
+    box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
   }
 
-  .btn-payment:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 20, 147, 0.5);
-  }
-
-  .btn-payment:active {
-    transform: translateY(0);
-  }
-
-  .arrow-icon {
-    animation: arrowBounce 1s infinite;
-  }
-
-  /* Animations */
-  @keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes arrowBounce {
-
-    0%,
-    100% {
-      transform: translateX(0);
-    }
-
-    50% {
-      transform: translateX(5px);
-    }
-  }
-
-  /* Responsive */
   @media (max-width: 576px) {
     .checkout-container {
-      padding: 1.5rem;
+      padding: 1rem;
     }
 
-    .checkout-title {
-      font-size: 1.5rem;
+    .delivery-arrival-text {
+      font-size: 0.65rem;
     }
 
-    .delivery-logos {
-      flex-direction: column;
-      gap: 1rem !important;
-    }
-
-    .dhl-box,
-    .estafeta-box {
-      width: 100%;
-    }
-
-    .btn-payment {
-      font-size: 1.25rem;
-      padding: 0.875rem 2rem;
+    .shipping-box {
+      padding: 0 0 8px 0;
     }
   }
 </style>

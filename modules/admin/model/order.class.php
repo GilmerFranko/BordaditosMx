@@ -71,15 +71,6 @@ class Order extends Model
         LIMIT ' . $data['pages']['limit']
     );
 
-    error_log(
-      'SELECT * 
-        FROM `orders` AS o
-        ' . $where_clause . '
-        ORDER BY 
-            o.`order_status` ' . $order_by . '
-        LIMIT ' . $data['pages']['limit']
-    );
-
     // Obtener los resultados de la consulta
     $data['data'] = array();
     if ($query)

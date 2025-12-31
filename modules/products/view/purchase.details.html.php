@@ -152,7 +152,7 @@ BORDAMEX Project - Detalles de Compra Rediseñados
       </svg>
       DETALLES DE COMPRA
     </h2>
-    <span class="text-muted small">ID Compra: #<?= time() ?></span>
+    <!--<span class="text-muted small">ID Compra: #<?= time() ?></span>-->
   </div>
 
   <div class="bmx-product-body">

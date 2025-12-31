@@ -32,11 +32,11 @@
 
     <!-- Shipping Section -->
     <div class="shipping-banner">
-      <i class="bi bi-lightning-charge-fill text-warning"></i>
-      <strong>ENVIO GRATIS 🇲🇽</strong>
+      <i class="text-warning">✈️</i>
+      <strong>ENV&Iacute;O GRATIS &nbsp;<img src="https://cdn-icons-png.flaticon.com/512/5344/5344530.png" width="30" alt="México"></strong>
     </div>
     <div class="shipping-date">
-      Compra hoy y recibe el día: <strong><?= getFiveDaysLater() ?></strong>
+      ⚡Compra hoy y recibe el día: <strong><?= getFiveDaysLater() ?></strong>
     </div>
 
     <!-- Description Section -->
@@ -58,7 +58,7 @@
             </div>
             <div class="feature-item">
               <i class="bi bi-truck"></i>
-              <small>ENVIO RAPIDO</small>
+              <small>ENV&Iacute;O RAPIDO</small>
             </div>
             <div class="feature-item">
               <i class="bi bi-arrow-repeat"></i>
@@ -169,12 +169,11 @@
   /* Shipping Banner */
   .shipping-banner {
     background-color: #fff;
-    padding: 15px 20px;
+    padding: 15px 20px 5px 20px;
     display: flex;
     align-items: center;
     gap: 10px;
     font-size: 1.1rem;
-    border-bottom: 2px solid #f0f0f0;
   }
 
   .shipping-banner i {
