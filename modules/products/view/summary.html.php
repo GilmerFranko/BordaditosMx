@@ -313,34 +313,40 @@ require Core::view('head', 'core');
     <!-- Payment Methods -->
     <div class="payment-methods">
       <!-- Card Payment -->
-      <div class="payment-option">
-        <h4 class="payment-option-title">1. PAGO CON TARJETA</h4>
-        <p class="payment-option-subtitle">CREDITO Y DEBITO</p>
-        <div class="card-logos">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1280px-Visa_Inc._logo.svg.png" alt="Visa" class="card-logo">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/2560px-MasterCard_Logo.svg.png" alt="Mastercard" class="card-logo">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Maestro_logo.png" alt="Maestro" class="card-logo">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/American_Express_logo.svg/1200px-American_Express_logo.svg.png" alt="American Express" class="card-logo">
+      <a href="<?= $config['card_pay_link'] ?>">
+        <div class="payment-option">
+          <h4 class="payment-option-title">1. PAGO CON TARJETA</h4>
+          <p class="payment-option-subtitle">CREDITO Y DEBITO</p>
+          <div class="card-logos">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1280px-Visa_Inc._logo.svg.png" alt="Visa" class="card-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/2560px-MasterCard_Logo.svg.png" alt="Mastercard" class="card-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Maestro_logo.png" alt="Maestro" class="card-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/American_Express_logo.svg/1200px-American_Express_logo.svg.png" alt="American Express" class="card-logo">
+          </div>
         </div>
-      </div>
+      </a>
 
       <!-- OXXO Payment -->
-      <div class="payment-option">
-        <h4 class="payment-option-title">2. DEPOSITO EN OXXO</h4>
-        <div class="oxxo-logo-container">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Oxxo_Logo.svg/1200px-Oxxo_Logo.svg.png" alt="OXXO" class="oxxo-logo">
+      <a href="https://wa.me/<?= $config['num_phone'] ?>?text=Hola%20deseo%20pagar%20mi%20pedido%20N°1%20con%20OXXO" target="_blank">
+        <div class="payment-option">
+          <h4 class="payment-option-title">2. DEPOSITO EN OXXO</h4>
+          <div class="oxxo-logo-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Oxxo_Logo.svg/1200px-Oxxo_Logo.svg.png" alt="OXXO" class="oxxo-logo">
+          </div>
         </div>
-      </div>
+      </a>
 
       <!-- Bank Transfer -->
-      <div class="payment-option">
-        <h4 class="payment-option-title">3. TRANSFERENCIA</h4>
-        <div class="transfer-icon-container">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-bank" viewBox="0 0 16 16">
-            <path d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485-.62H.5a.498.498 0 0 1-.485-.62l.5-2A.5.5 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89zM3.777 3h8.447L8 1zM2 6v7h1V6zm2 0v7h2.5V6zm3.5 0v7h1V6zm2 0v7H12V6zM13 6v7h1V6zm2-1V4H1v1zm-.39 9H1.39l-.25 1h13.72z" />
-          </svg>
+      <a href="https://wa.me/<?= $config['num_phone'] ?>?text=Hola%20deseo%20pagar%20mi%20pedido%20N°1%20con%20Transferencia" target="_blank">
+        <div class="payment-option">
+          <h4 class="payment-option-title">3. TRANSFERENCIA</h4>
+          <div class="transfer-icon-container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-bank" viewBox="0 0 16 16">
+              <path d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485-.62H.5a.498.498 0 0 1-.485-.62l.5-2A.5.5 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89zM3.777 3h8.447L8 1zM2 6v7h1V6zm2 0v7h2.5V6zm3.5 0v7h1V6zm2 0v7H12V6zM13 6v7h1V6zm2-1V4H1v1zm-.39 9H1.39l-.25 1h13.72z" />
+            </svg>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>

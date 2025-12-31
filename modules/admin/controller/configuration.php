@@ -63,6 +63,8 @@ if (isset($_POST['save']))
             $data['limit_globals_messages'] = empty($_POST['limit_globals_messages']) ? 100 : (int)$_POST['limit_globals_messages'];
             // ESTABLECER NUMERO DE TELÉFONO
             $data['num_phone'] = escape($_POST['num_phone']);
+            // ESTABLECER LINK DE PAGO CON TARJETA
+            $data['card_pay_link'] = escape($_POST['card_pay_link']);
             // ELEGIR RANGO POR DEFECTO
             $data['reg_group'] = empty($config['reg_group']) ? '3' : $config['reg_group'];
             // ELEGIR ESTADO DE VALIDACIÓN POR CORREO

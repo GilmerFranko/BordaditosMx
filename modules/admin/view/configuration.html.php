@@ -46,11 +46,15 @@ require Core::view('head', 'core');
           </div>
         </div>
 
-
-        <div class="input-field">
-          <i class="material-icons prefix">phone</i>
-          <input type="tel" id="num_phone" name="num_phone" class="validate" value="<?php echo $config['num_phone']; ?>">
-          <label for="num_phone">Número de teléfono (Añadir codigo +)</label>
+        <div class="row">
+          <div class="input-field col s6">
+            <input type="tel" id="num_phone" name="num_phone" class="validate" value="<?php echo $config['num_phone']; ?>">
+            <label for="num_phone">Número de teléfono (Añadir codigo +)</label>
+          </div>
+          <div class="input-field col s6">
+            <input type="text" id="card_pay_link" name="card_pay_link" class="validate" value="<?php echo $config['card_pay_link']; ?>">
+            <label for="card_pay_link">Link de pago con tarjeta</label>
+          </div>
         </div>
         <!-- CONFIGURACIÓN EXTRA -->
         <div class="row">
