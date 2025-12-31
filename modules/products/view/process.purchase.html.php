@@ -114,11 +114,7 @@ require Core::view('head', 'core');
         <!-- WhatsApp Contact Section -->
         <div class="whatsapp-section mb-4">
           <div class="section-header d-flex align-items-center mb-3">
-            <svg class="whatsapp-icon me-2" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="15" cy="15" r="13" fill="#25D366" />
-              <path d="M20 10C19 9 17.5 8.5 16 8.5C12.5 8.5 9.5 11.5 9.5 15C9.5 16.5 10 17.5 10.5 18.5L9.5 22L13 21C14 21.5 15 22 16 22C19.5 22 22.5 19 22.5 15.5C22.5 14 22 12.5 21 11.5L20 10Z" fill="white" />
-              <path d="M18.5 17C18.5 17.5 18 18 17.5 18C16 18 14 17 12.5 15.5C11.5 14.5 10.5 12.5 11 11.5C11 11 11.5 10.5 12 10.5C12.5 10.5 12.5 11 12.5 11.5C13 12 13 12.5 13.5 13C13.5 13.5 13.5 13.5 13 14C13 14.5 14 15.5 14.5 16C15 16.5 15.5 16.5 16 16.5C16.5 16.5 16.5 16 17 16C17.5 16 17.5 16.5 18 17C18 17.5 18.5 17.5 18.5 17Z" fill="#25D366" />
-            </svg>
+            <img src="https://img.freepik.com/vector-premium/icono-logotipo-whatsapp-aplicacion-redes-sociales-aplicacion-red-marca-editorial-popular-ilustracion-vectorial_913857-391.jpg?semt=ais_hybrid&w=740&q=80" alt="logo whatsapp" width="64">
             <h2 class="section-title whatsapp-title mb-0">WHATSAPP DE CONTACTO</h2>
           </div>
           <p class="section-subtitle mb-3">Escribe tu WhatsApp donde un asesor te enviara toda la informacion de tu compra</p>
@@ -261,7 +257,7 @@ require Core::view('head', 'core');
   }
 
   .whatsapp-title {
-    color: #25d366;
+    color: #02c502;
   }
 
   .form-label {
