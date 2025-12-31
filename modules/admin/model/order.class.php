@@ -32,6 +32,12 @@ class Order extends Model
       $where[] = 'o.`order_status` = "' . $params['order_status'] . '"';
     }
 
+    // Filtrar por fecha (mayor o menor que una fecha específica)
+    if (!empty($params['filter_date']))
+    {
+      $where[] = 'DATE(o.`created_at`) = "' . $params['filter_date'] . '"';
+    }
+
     // Ordenar por fecha (ascendente o descendente)
     $order_by = !empty($params['order_by']) && in_array($params['order_by'], ['asc', 'desc'])
       ? $params['order_by']
@@ -57,6 +63,15 @@ class Order extends Model
 
     // Construir la consulta SQL final con paginación
     $query = $this->db->query(
+      'SELECT * 
+        FROM `orders` AS o
+        ' . $where_clause . '
+        ORDER BY 
+            o.`order_status` ' . $order_by . '
+        LIMIT ' . $data['pages']['limit']
+    );
+
+    error_log(
       'SELECT * 
         FROM `orders` AS o
         ' . $where_clause . '
