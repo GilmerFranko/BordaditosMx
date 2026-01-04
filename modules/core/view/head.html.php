@@ -16,18 +16,21 @@
 <html lang="es" style="overflow-x: hidden">
 
 <head>
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DGY33MBNWW"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
+	<?php if ($sModule != 'admin' and $sModule != 'mod')
+	{ ?>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-DGY33MBNWW"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
 
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag('js', new Date());
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
 
-		gtag('config', 'G-DGY33MBNWW');
-	</script>
+			gtag('config', 'G-DGY33MBNWW');
+		</script>
+	<?php } ?>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
