@@ -16,13 +16,8 @@
 <html lang="es" style="overflow-x: hidden">
 
 <head>
-
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-168682834-1"></script>-->
-
-
-
-
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DGY33MBNWW"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
 
@@ -31,7 +26,7 @@
 		}
 		gtag('js', new Date());
 
-		gtag('config', 'UA-168682834-1');
+		gtag('config', 'G-DGY33MBNWW');
 	</script>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<meta charset="UTF-8">
