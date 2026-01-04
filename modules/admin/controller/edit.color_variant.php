@@ -104,7 +104,7 @@ if (isset($_GET['edit_variant']) && $_GET['edit_variant'] == 'true')
         $r = $q->fetch_assoc();
         loadClass('core/extra')->deleteImage($r['image_url'], $config['products_path']);
         // Actualizar registro
-        if (Core::model('db', 'core')->smartInsert('variants_images', ['image_url' => $newHoodie1], ['id', $r['id']]))
+        if (Core::model('db', 'core')->smartInsert('variants_images', ['image_url' => $newHoodie1, 'created_at' => time()], ['id', $r['id']]))
         {
           $msg[] = 'No se pudo actualizar la imagen Sudadera 1';
         }
@@ -112,7 +112,7 @@ if (isset($_GET['edit_variant']) && $_GET['edit_variant'] == 'true')
       else
       {
         // Insertar nuevo registro
-        if (!Core::model('db', 'core')->smartInsert('variants_images', ['color_variant_id' => $variant_id, 'image_url' => $newHoodie1, 'num_image' => 1]))
+        if (!Core::model('db', 'core')->smartInsert('variants_images', ['color_variant_id' => $variant_id, 'image_url' => $newHoodie1, 'num_image' => 1, 'created_at' => time()]))
         {
           $msg[] = 'No se pudo subir la imagen Sudadera 1';
         }
@@ -137,7 +137,7 @@ if (isset($_GET['edit_variant']) && $_GET['edit_variant'] == 'true')
         $r = $q->fetch_assoc();
         loadClass('core/extra')->deleteImage($r['image_url'], $config['products_path']);
         // Actualizar registro
-        if (!Core::model('db', 'core')->smartInsert('variants_images', ['image_url' => $newHoodie2], ['id', $r['id']]))
+        if (!Core::model('db', 'core')->smartInsert('variants_images', ['image_url' => $newHoodie2, 'created_at' => time()], ['id', $r['id']]))
         {
           $msg[] = 'No se pudo actualizar la imagen Sudadera 2 en la base de datos';
         }
@@ -145,7 +145,7 @@ if (isset($_GET['edit_variant']) && $_GET['edit_variant'] == 'true')
       else
       {
         // Insertar nuevo registro
-        if (!Core::model('db', 'core')->smartInsert('variants_images', ['color_variant_id' => $variant_id, 'image_url' => $newHoodie2, 'num_image' => 2]))
+        if (!Core::model('db', 'core')->smartInsert('variants_images', ['color_variant_id' => $variant_id, 'image_url' => $newHoodie2, 'num_image' => 2, 'created_at' => time()]))
         {
           $msg[] = 'No se pudo insertar la imagen Sudadera 2 en la base de datos';
         }

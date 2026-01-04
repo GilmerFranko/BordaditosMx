@@ -101,12 +101,12 @@ if (isset($_GET['do']) && $_GET['do'] == 'new')
       // Insertar imágenes de sudadera
       if (isset($newHoodie1))
       {
-        Core::model('db', 'core')->smartInsert('variants_images', ['color_variant_id' => $variant_id, 'image_url' => $newHoodie1, 'num_image' => 1]);
+        Core::model('db', 'core')->smartInsert('variants_images', ['color_variant_id' => $variant_id, 'image_url' => $newHoodie1, 'num_image' => 1, 'created_at' => time()]);
       }
 
       if (isset($newHoodie2))
       {
-        Core::model('db', 'core')->smartInsert('variants_images', ['color_variant_id' => $variant_id, 'image_url' => $newHoodie2, 'num_image' => 2]);
+        Core::model('db', 'core')->smartInsert('variants_images', ['color_variant_id' => $variant_id, 'image_url' => $newHoodie2, 'num_image' => 2, 'created_at' => time()]);
       }
 
       if (empty($msg2))
