@@ -49,7 +49,7 @@
           </p>
           <img src="<?= $config['images_url'] . '/tipos-de-telas.jpeg' ?>" alt="tipos de telas" width="260">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 separator-hr">
           <!-- Beneficios con distribución mejorada -->
           <div class="feature-icons">
             <div class="feature-item">
@@ -314,5 +314,15 @@
       padding: 0;
       max-width: 100%;
     }
+
+    .separator-hr {
+      border-top: 2px solid #f0f0f0;
+    }
+
+    .description-section {
+      border-bottom: unset;
+    }
   }
+
+  @media (min-width: 768px) {}
 </style>
