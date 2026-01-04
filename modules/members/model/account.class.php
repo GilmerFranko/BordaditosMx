@@ -74,7 +74,7 @@ class Account extends Model
    * @param string $selected (Selección predeterminada)
    * @return string / html
    */
-  function getTimezones($selected = 'America/Los_Angeles')
+  function getTimezones($selected = 'America/Mexico_City')
   {
     $timezones = DateTimeZone::listIdentifiers(DateTimeZone::ALL);
     // INICIAR SELECT

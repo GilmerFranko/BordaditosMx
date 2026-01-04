@@ -33,7 +33,7 @@ session_start();
 
 
 /* Zona horaria por defecto */
-date_default_timezone_set('Europe/Madrid');
+date_default_timezone_set('America/Mexico_City');
 
 /* Nivel de error */
 if ($config['debug_mode'] == 1)

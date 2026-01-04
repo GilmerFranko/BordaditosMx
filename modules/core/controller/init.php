@@ -47,7 +47,7 @@ $parser->addCodeDefinition($codeBuilder->build());
 date_default_timezone_set($session->memberData['pp_timezone']);
 $extra->db->set_charset('utf8');
 $extra->db->query('SET NAMES  "utf8"');
-$extra->db->query("SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
+$extra->db->query("SET NAMES 'utf8'");
 
 
 /* Se comprueba si se puede acceder al sitio */

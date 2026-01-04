@@ -223,6 +223,9 @@ $yesterday = date('Y-m-d', strtotime('-1 day'));
     </div>
 
     <div id="contentOrders" class="row">
+      <div class="col s12">
+        <p class="grey-text">Resultados: <?= $orders['total'] ?></p>
+      </div>
       <?php if (!empty($orders['data']) && is_array($orders['data'])) : ?>
         <?php foreach ($orders['data'] as $prod) :
           $statusClass = "status-" . $prod['order_status'];

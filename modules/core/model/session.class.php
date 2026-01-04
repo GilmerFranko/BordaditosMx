@@ -44,7 +44,7 @@ class Session extends Model
       'member_id' => '0',
       'permissions' => array(),
       'newbie' => true,
-      'pp_timezone' => 'Europe/Madrid',
+      'pp_timezone' => 'America/Mexico_City',
       'ip_address' => $this->getIp(),
     );
 
@@ -79,7 +79,7 @@ class Session extends Model
         // ¿ES MODERADOR - ADMINISTRADOR?
         $this->is_admod = $this->getLevel();
         // ZONA HORARIA PREDETERMINADA
-        $this->memberData['pp_timezone'] = empty($this->memberData['pp_timezone']) ? 'Europe/Madrid' : $this->memberData['pp_timezone'];
+        $this->memberData['pp_timezone'] = empty($this->memberData['pp_timezone']) ? 'America/Mexico_City' : $this->memberData['pp_timezone'];
         // Mensajes sin leer
         $this->memberData['unread_messages'] = $this->getUnreadMessagesCount($this->memberData['member_id']);
         // CANTIDAD DE NOTIFICACIONES TOTALES

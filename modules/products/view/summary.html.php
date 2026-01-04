@@ -13,9 +13,6 @@
 require Core::view('head', 'core');
 
 ?>
-<!-- Header -->
-<?php require Core::view('menu', 'core'); ?>
-<!-- / Header -->
 <style>
   .checkout-container {
     max-width: 500px;
@@ -247,7 +244,7 @@ require Core::view('head', 'core');
 
   /* Alert Banner */
   .alert-banner {
-    background-color: #2c3e50;
+    /*background-color: #2c3e50;*/
     color: white;
     padding: 15px 20px;
     border-radius: 30px;
@@ -258,7 +255,11 @@ require Core::view('head', 'core');
     align-items: center;
     justify-content: center;
     gap: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    /*box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);*/
+    img {
+      width: 100%;
+    }
   }
 
   .alert-icon {
@@ -290,11 +291,11 @@ require Core::view('head', 'core');
     <!-- Call to Action Button -->
     <!-- Alert Banner -->
     <div class="alert-banner mb-3 active">
-      <span class="alert-icon">🚨</span>
-      <span class="alert-text" style="text-align: justify;"><span style="font-size: 13px;">Realiza tu pago ahora</span><br>¡ÚLTIMAS PIEZAS DISPONIBLES!</span>
-      <span class="alert-icon">✓</span>
+      <!--<span class="alert-icon">🚨</span>
+        <span class="alert-text">¡¡Alerta!! ¡ÚLTIMAS PIEZAS DISPONIBLES!</span>
+        <span class="alert-icon">✓</span>-->
+      <img src="<?= $config['images_url'] . '/alerta-ultimas-piezas-disponibles.png' ?>" alt="Ultimas piezas disponibles">
     </div>
-
     <!-- Payment Method Selection Header -->
     <div class="payment-header text-center mb-4">
 
