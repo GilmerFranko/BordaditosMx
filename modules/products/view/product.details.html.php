@@ -45,7 +45,7 @@
         <div class="col-md-8">
           <h2 class="section-title">DESCRIPCION</h2>
           <p class="description-text" style="margin-bottom: 5px">
-            <?= $product['description'] ?>
+            <?= tobr($parser->getAsHTML()) ?>
           </p>
           <img src="<?= $config['images_url'] . '/tipos-de-telas.jpeg' ?>" alt="tipos de telas" width="260">
         </div>

@@ -25,3 +25,5 @@ $product_id = (int) $_GET['product_id'];
 $product = loadClass('products/product')->getProductById($product_id);
 
 $variants = loadClass('products/variants')->getProductVariants($product_id);
+
+$parser->parse($product['description']);
