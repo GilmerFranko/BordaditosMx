@@ -41,41 +41,17 @@ require Core::view('menu', 'core');
 		</div>
 	</div>
 
+	<!-- Enlace Top20 -->
+	<div class="container my-3">
+		<div class="d-flex justify-content-center align-items-center">
+			<a href="<?= gLink('/') ?>" style="color:var(--pink-dark)">Todos los productos : </a>
+			<a href="<?= gLink('products/top20') ?>" style="color:var(--pink-dark)">🔥Top 20🔥</a>
+		</div>
+	</div>
+
 	<!-- Product Grid -->
 	<div class="container my-3">
-		<div class="row g-3">
-			<?php if ($products['total'] > 0) : ?>
-				<?php foreach ($products['data'] as $product) : ?>
-					<div class="col-6 container-product" style="cursor: pointer;" onclick="window.location.href='<?= gLink('products/view.product', ['product_id' => $product['id']]) ?>'">
-						<div class="product-card">
-							<div class="product-image">
-								<img src="<?= $config['products_url'] . '/' . $product['image_url'] ?>" alt="<?= $product['name'] ?>">
-							</div>
-							<div class="product-info">
-								<h3 class="product-title"><?= $product['name'] ?></h3>
-								<div class="shipping-badge">
-									Envío gratis <img src="https://images.emojiterra.com/twitter/512px/1f1f2-1f1fd.png" width="24" alt="">
-								</div>
-							</div>
-							<?php if ($session->is_admod == 1) : ?>
-								<div class="">
-									<a href="<?= gLink('admin/edit.product', ['product_id' => $product['id']]) ?>" class="">Editar producto</a>
-								</div>
-							<?php endif; ?>
-							<div class="price-container d-flex align-items-center justify-content-center">
-								<div class="price-container">
-									<?php if ($product['sale_price'] > 0) : ?>
-										<span class="price-old">$<?= $product['sale_price'] ?></span>
-									<?php endif; ?>
-									<span class="price-new">$<?= $product['original_price'] ?></span>
-								</div>
-								<div class="fire-icon">🔥</div>
-							</div>
-						</div>
-					</div>
-				<?php endforeach; ?>
-			<?php endif; ?>
-		</div>
+		<?php require Core::view('products.area', 'products'); ?>
 	</div>
 
 </section>

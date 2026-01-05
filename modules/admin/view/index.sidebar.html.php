@@ -115,6 +115,16 @@ $pendingOrdersCount = loadClass('admin/order')->getPendingOrdersCount();
               </a>
             <?php } ?>
           </li>
+          <li <?php if ($sSection == 'top20')
+              {
+                echo ' class="active"';
+              } ?>>
+            <a class="waves-effect waves-blue" href="<?php echo $extra->generateUrl('admin', 'top20'); ?>">
+              <i class="material-icons notranslate">whatshot
+              </i>
+              Top 20
+            </a>
+          </li>
         </ul>
       </div>
     </li>
