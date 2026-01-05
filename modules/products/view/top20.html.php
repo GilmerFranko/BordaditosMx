@@ -55,6 +55,10 @@ require Core::view('menu', 'core');
     <?php require Core::view('products.area', 'products'); ?>
   </div>
 
+  <!--paginador-->
+  <?php echo $products['pages']['paginator']; ?>
+  <!--fin_paginador-->
+
 </section>
 
 

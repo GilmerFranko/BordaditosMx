@@ -325,3 +325,51 @@ header {
     display: block;
   }
 }
+
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  list-style: none;
+  border-radius: 5px;
+}
+
+.pagination li {
+  display: inline;
+  margin: 0 5px;
+}
+
+.pagination li a {
+  color: var(--primary); /* Color del texto */
+  border: 1px solid var(--primary); /* Borde púrpura */
+  padding: 6px 12px;
+  text-decoration: none;
+  border-radius: 4px; /* Borde redondeado */
+  background-color: none !important; /* Fondo púrpura claro */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination li a:hover {
+  background-color: var(--primary); /* Fondo púrpura oscuro en hover */
+  color: var(--pink-dark) !important; /* Texto blanco en hover */
+}
+
+.pagination li.active a {
+  background-color: var(--primary); /* Fondo púrpura en página activa */
+  color: var(--pink-dark) !important; /* Texto blanco en página activa */
+  border-color: var(--primary); /* Borde púrpura en página activa */
+}
+
+.pagination li a i.material-icons {
+  vertical-align: middle;
+  font-size: 1.2rem;
+  color: var(--primary); /* Color del ícono */
+}
+
+.pagination li.waves-effect a:hover i.material-icons {
+  color: var(--pink-dark); /* Color del ícono en hover */
+}
+
+.center-align {
+  text-align: center;
+  margin: auto;
+}

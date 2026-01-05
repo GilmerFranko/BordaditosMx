@@ -51,7 +51,7 @@ class Product extends Model
     list($data['total']) = $total_query->fetch_row();
 
     // Paginador
-    $data['pages'] = Core::model('paginator', 'core')->pageIndex(array('admin', 'products', null, $params), $data['total'], $limit);
+    $data['pages'] = Core::model('paginator', 'core')->pageIndex(array('core', 'home-guest', null, $params), $data['total'], $limit);
 
     // Construir la consulta SQL final con paginación
     $query = $this->db->query(
