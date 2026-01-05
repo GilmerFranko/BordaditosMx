@@ -7,7 +7,7 @@
  * @author Gilmer Franco <gil2017.com@gmail.com>
  *=======================================================
  *
- * @Description Vista de un pedido
+ * @Description Vista de un pedido con imágenes en la tabla
  *
  */
 $page['name'] = 'Pedido #' . $order['id'];
@@ -78,6 +78,22 @@ require Core::view('head', 'core');
 
   .item-row:hover {
     background-color: #fafafa;
+  }
+
+  /* Estilos para la imagen del producto en tabla */
+  .product-cell {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .product-table-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background: #f0f0f0;
   }
 
   .variant-tag {
@@ -156,6 +172,7 @@ require Core::view('head', 'core');
     position: relative;
   }
 </style>
+
 <section id="sectionOrder">
   <div class="container">
     <div class="row order-header">
@@ -165,9 +182,6 @@ require Core::view('head', 'core');
       </div>
       <div class="col s12 m4 right-align">
         <span class="status-badge status-Paid"><?php echo $class_order_status[$order['order_status']]['text']; ?></span>
-        <!--<div style="margin-top: 15px;">
-          <a href="javascript:window.print()" class="btn-flat waves-effect"><i class="material-icons left">print</i>Imprimir</a>
-        </div>-->
       </div>
     </div>
 
@@ -242,8 +256,13 @@ require Core::view('head', 'core');
               <?php foreach ($items as $item): ?>
                 <tr class="item-row">
                   <td>
-                    <strong><?= $item['name'] ?></strong><br>
-                    <small class="grey-text">ID: <?= $item['id'] ?></small>
+                    <div class="product-cell">
+                      <img src="<?= $config['products_url'] . '/' . $item['image'] ?: 'https://via.placeholder.com/50' ?>" alt="<?= htmlspecialchars($item['name']) ?>" class="product-table-img materialboxed">
+                      <div>
+                        <strong><?= $item['name'] ?></strong><br>
+                        <small class="grey-text">ID: <?= $item['id'] ?></small>
+                      </div>
+                    </div>
                   </td>
                   <td>
                     <span class="variant-tag"><?= $item['color_name'] ?></span><br>
@@ -277,8 +296,9 @@ require Core::view('head', 'core');
       <div class="col s12 right-align">
         <a href="<?= gLink('admin/view.orders') ?>" class="btn grey waves-effect waves-light">Regresar</a>
         <a href="<?= gLink('admin/edit.order', ['order_id' => $order['id']]) ?>" class="btn teal waves-effect waves-light">Editar Pedido</a>
-        <!--<button class="btn blue waves-effect waves-light"><i class="material-icons left">email</i>Enviar Factura</button>-->
       </div>
     </div>
   </div>
 </section>
+
+<?php require Core::view('footer', 'core'); ?>

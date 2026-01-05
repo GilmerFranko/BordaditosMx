@@ -41,7 +41,7 @@ class Order extends Model
     // Ordenar por fecha (ascendente o descendente)
     $order_by = !empty($params['order_by']) && in_array($params['order_by'], ['asc', 'desc'])
       ? $params['order_by']
-      : 'asc';
+      : 'desc';
 
     // Construir la cláusula WHERE
     $where_clause = !empty($where) ? 'WHERE ' . implode(' AND ', $where) : '';
@@ -67,7 +67,7 @@ class Order extends Model
         FROM `orders` AS o
         ' . $where_clause . '
         ORDER BY 
-            o.`order_status` ' . $order_by . '
+            o.`order_status`,`id` ' . $order_by . '
         LIMIT ' . $data['pages']['limit']
     );
 

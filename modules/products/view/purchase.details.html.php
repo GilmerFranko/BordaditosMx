@@ -176,7 +176,7 @@ BORDAMEX Project - Detalles de Compra Rediseñados
         </div>
         <p class="text-muted small mb-0">
           <i class="fa fa-info-circle me-1"></i>
-          Estás adquiriendo <strong>1 unidad</strong> de este modelo.
+          Estás adquiriendo <strong>2 unidades</strong> de este modelo.
         </p>
       </div>
     </div>

@@ -58,9 +58,9 @@ require Core::view('head', 'core');
                 <span class="delivery-arrival-text">Recibe el: <?= getFiveDaysLater(5) ?></span>
               </div>
             </div>
-            <div class="delivery-logo selectable-method flex-fill" data-method="DHL">
+            <div class="delivery-logo selectable-method flex-fill" data-method="Estafeta">
               <div class="shipping-box">
-                <img src="<?= $config['images_url'] . '/estafeta.png' ?>" alt="DHL">
+                <img src="<?= $config['images_url'] . '/estafeta.png' ?>" alt="Estafeta">
                 <span class="delivery-arrival-text">Recibe el: <?= getFiveDaysLater(7) ?></span>
               </div>
             </div>
