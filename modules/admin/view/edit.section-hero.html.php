@@ -155,6 +155,11 @@ require Core::view('head', 'core');
   </div>
 
 </section>
+
+<!-- Footer -->
+<?php require Core::view('footer', 'core'); ?>
+<!-- / Footer -->
+
 <script>
   $(document).ready(function() {
     // Inicializar componentes de Materialize necesarios

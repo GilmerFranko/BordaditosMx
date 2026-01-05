@@ -311,6 +311,10 @@ $yesterday = date('Y-m-d', strtotime('-1 day'));
 
 </section>
 
+<!-- Footer -->
+<?php require Core::view('footer', 'core'); ?>
+<!-- / Footer -->
+
 <!-- JS adicional -->
 
 <script type="text/javascript" src="<?php echo $config['base_url']; ?>/static/js/admin.js"></script>

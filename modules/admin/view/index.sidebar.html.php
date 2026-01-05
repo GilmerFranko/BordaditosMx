@@ -37,92 +37,74 @@ $pendingOrdersCount = loadClass('admin/order')->getPendingOrdersCount();
     }
   }
 </style>
-<li class="grey darken-4">
+<!-- Menú Colapsable Admin -->
+<li class="no-padding">
   <ul class="collapsible collapsible-accordion">
-    <li <?php if ($sModule == 'admin')
-        {
-          echo ' class="active"';
-        } ?>>
-      <a class="collapsible-header white-text waves-effect waves-blue "><i class="material-icons white-text">settings_applications</i>Admin <i class="material-icons right white-text" style="margin-right:0;">arrow_drop_down</i></a>
-      <div class="collapsible-body z-depth-1">
+    <li <?php echo ($sModule == 'admin') ? 'class="active"' : ''; ?>>
+      <a class="collapsible-header waves-effect">
+        <i class="material-icons">settings_suggest</i> Gestión Admin
+        <i class="material-icons right" style="margin-right:0;">expand_more</i>
+      </a>
+      <div class="collapsible-body">
         <ul>
-          <li><a href="#" class="waves-effect waves-blue grey-text">Sistema</a></li>
-          <li <?php if ($sSection == 'configuration')
-              {
-                echo ' class="active"';
-              } ?>>
-            <a class="waves-effect waves-blue" href="<?php echo $extra->generateUrl('admin', 'configuration'); ?>">
-              <i class="material-icons">settings</i>
-              Configuraci&oacute;n
+          <!-- Sección Sistema -->
+          <li>
+            <div class="subheader">Sistema</div>
+          </li>
+          <li <?php echo ($sSection == 'configuration') ? 'class="active"' : ''; ?>>
+            <a href="<?php echo $extra->generateUrl('admin', 'configuration'); ?>">
+              <i class="material-icons">settings</i> Configuración
             </a>
           </li>
-          <li <?php if ($sSection == 'members')
-              {
-                echo ' class="active"';
-              } ?>>
-            <a class="waves-effect waves-blue" href="<?php echo $extra->generateUrl('admin', 'members'); ?>">
-              <i class="material-icons">group</i>
-              Usuarios
+          <li <?php echo ($sSection == 'members') ? 'class="active"' : ''; ?>>
+            <a href="<?php echo $extra->generateUrl('admin', 'members'); ?>">
+              <i class="material-icons">group</i> Usuarios
             </a>
           </li>
-          <li <?php if ($sSection == 'groups')
-              {
-                echo ' class="active"';
-              } ?>>
-            <a class="waves-effect waves-blue" href="<?php echo $extra->generateUrl('admin', 'groups'); ?>">
-              <i class="material-icons">stars</i>
-              Grupos
+          <li <?php echo ($sSection == 'groups') ? 'class="active"' : ''; ?>>
+            <a href="<?php echo $extra->generateUrl('admin', 'groups'); ?>">
+              <i class="material-icons">stars</i> Grupos
             </a>
           </li>
 
-          <li><a href="#" class="waves-effect waves-blue grey-text">General</a></li>
-          <li <?php if ($sSection == 'edit.section-hero')
-              {
-                echo ' class="active"';
-              } ?>>
-            <a class="waves-effect waves-blue" href="<?php echo $extra->generateUrl('admin', 'edit.section-hero'); ?>">
-              <i class="material-icons">store</i>
-              Foto de Portada
+          <li>
+            <div class="divider" style="opacity: 0.05;"></div>
+          </li>
+
+          <!-- Sección Diseño -->
+          <li>
+            <div class="subheader">Apariencia</div>
+          </li>
+          <li <?php echo ($sSection == 'edit.section-hero') ? 'class="active"' : ''; ?>>
+            <a href="<?php echo $extra->generateUrl('admin', 'edit.section-hero'); ?>">
+              <i class="material-icons">wallpaper</i> Foto Portada
             </a>
           </li>
-          <li><a href="#" class="waves-effect waves-blue grey-text">Productos</a></li>
-          <li <?php if ($sSection == 'view.products')
-              {
-                echo ' class="active"';
-              } ?>>
-            <a class="waves-effect waves-blue" href="<?php echo $extra->generateUrl('admin', 'view.products'); ?>">
-              <i class="material-icons">store</i>
-              Productos
+
+          <li>
+            <div class="divider" style="opacity: 0.05;"></div>
+          </li>
+
+          <!-- Sección Catálogo -->
+          <li>
+            <div class="subheader">Tienda</div>
+          </li>
+          <li <?php echo ($sSection == 'view.products') ? 'class="active"' : ''; ?>>
+            <a href="<?php echo $extra->generateUrl('admin', 'view.products'); ?>">
+              <i class="material-icons">shopping_bag</i> Productos
             </a>
           </li>
-          <li <?php if ($sSection == 'view.orders')
-              {
-                echo ' class="active"';
-              } ?>>
-            <?php if ($pendingOrdersCount > 0)
-            { ?>
-              <a class="waves-effect waves-blue" href="<?php echo $extra->generateUrl('admin', 'view.orders'); ?>">
-                <i class="material-icons">category</i>
-                Pedidos
-                <span class="badge new white-text" data-badge=""><?php echo $pendingOrdersCount; ?></span>
-              </a>
-            <?php }
-            else
-            { ?>
-              <a class="waves-effect waves-blue" href="<?php echo $extra->generateUrl('admin', 'view.orders'); ?>">
-                <i class="material-icons">category</i>
-                Pedidos
-              </a>
-            <?php } ?>
+          <li <?php echo ($sSection == 'view.orders') ? 'class="active"' : ''; ?>>
+            <a href="<?php echo $extra->generateUrl('admin', 'view.orders'); ?>">
+              <i class="material-icons">receipt_long</i> Pedidos
+              <?php if ($pendingOrdersCount > 0): ?>
+                <span class="badge new white-text"><?php echo $pendingOrdersCount; ?></span>
+              <?php endif; ?>
+            </a>
           </li>
-          <li <?php if ($sSection == 'top20')
-              {
-                echo ' class="active"';
-              } ?>>
-            <a class="waves-effect waves-blue" href="<?php echo $extra->generateUrl('admin', 'top20'); ?>">
-              <i class="material-icons notranslate">whatshot
-              </i>
-              Top 20
+          <li <?php echo ($sSection == 'top20') ? 'class="active"' : ''; ?>>
+            <a href="<?php echo $extra->generateUrl('admin', 'top20'); ?>">
+              <i class="material-icons">analytics</i> Reporte Top 20
             </a>
           </li>
         </ul>
