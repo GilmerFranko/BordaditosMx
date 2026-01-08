@@ -57,8 +57,11 @@ class Product extends Model
     $query = $this->db->query(
       'SELECT * 
         FROM `products` AS p
+        LEFT JOIN top_products tp ON p.id = tp.product_id
         ' . $where_clause . '
-        ORDER BY 
+        ORDER BY
+            CASE WHEN tp.position IS NULL THEN 1 ELSE 0 END,
+            tp.position ASC,    
             p.`created_at` ' . $order_by . '
         LIMIT ' . $data['pages']['limit']
     );

@@ -41,15 +41,6 @@ require Core::view('menu', 'core');
     </div>
   </div>
 
-  <!-- Enlace Top20 -->
-  <div class="container my-3">
-    <div class="d-flex justify-content-center align-items-center">
-      <a href="<?= gLink('/') ?>" style="color:var(--pink-dark)">Todos los productos</a>
-      <span>&nbsp: </span>
-      <a href="<?= gLink('products/top20') ?>" style="color:var(--pink-dark)">🔥Top 20🔥</a>
-    </div>
-  </div>
-
   <!-- Product Grid -->
   <div class="container my-3">
     <?php require Core::view('products.area', 'products'); ?>

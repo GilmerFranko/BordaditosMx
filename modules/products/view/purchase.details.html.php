@@ -209,7 +209,7 @@ BORDAMEX Project - Detalles de Compra Rediseñados
       <!-- Cantidad (Siempre 1 según tu código original) -->
       <div class="bmx-spec-item">
         <span class="bmx-spec-label">Cantidad</span>
-        <span class="bmx-spec-value">1 pz.</span>
+        <span class="bmx-spec-value">Duo.</span>
       </div>
     </div>
   </div>
