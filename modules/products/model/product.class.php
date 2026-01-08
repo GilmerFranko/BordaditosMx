@@ -55,7 +55,7 @@ class Product extends Model
 
     // Construir la consulta SQL final con paginación
     $query = $this->db->query(
-      'SELECT * 
+      'SELECT p.*, tp.`position` AS top_position 
         FROM `products` AS p
         LEFT JOIN top_products tp ON p.id = tp.product_id
         ' . $where_clause . '
@@ -65,12 +65,7 @@ class Product extends Model
             p.`created_at` ' . $order_by . '
         LIMIT ' . $data['pages']['limit']
     );
-    error_log('SELECT * 
-        FROM `products` AS p
-        ' . $where_clause . '
-        ORDER BY 
-            p.`created_at` ' . $order_by . '
-        LIMIT ' . $data['pages']['limit']);
+
     $data['rows'] = $query->num_rows;
 
     // Obtener los resultados de la consulta
