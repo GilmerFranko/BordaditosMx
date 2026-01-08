@@ -701,7 +701,7 @@ if(count($_SESSION['lastUrl'])>2) array_shift($_SESSION['lastUrl']);*/
     public function getLogo()
     {
         global $config;
-        return $config['images_url'] . '/logo.png';
+        return $config['images_url'] . '/logo.webp';
     }
 
     /**

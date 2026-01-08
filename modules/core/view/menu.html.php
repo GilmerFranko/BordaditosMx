@@ -14,11 +14,11 @@
         <a href="<?= gLink('core', 'home') ?>" style="text-decoration: none;">
           <div class="d-flex align-items-center">
             <div class="logo-circle me-2">
-              <i class="bi bi-infinity"></i>
+              <img src="<?= $extra->getLogo() ?>" alt="" style="width: 41px;border-radius: 45px;">
             </div>
             <div class="brand-text">
-              <div class="fw-bold">Desaf&iacuteos Mexico</div>
-              <div class="small">Web Oficial</div>
+              <div class="fw-bold"><?= $config['script_name'] ?></div>
+              <div class="small">Web Oficial &nbsp;&nbsp;&nbsp;</div>
             </div>
           </div>
         </a>
