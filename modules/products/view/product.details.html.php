@@ -17,8 +17,27 @@
   <div class="product-detail-card">
     <!-- Pink Header Section -->
     <div class="pink-header">
+      <?php
+      // Determinamos qué imagen mostrar: la del producto o la de la variante seleccionada
+      $display_image = $product['image_url'];
+      // Buscamos la imagen de la variante solo si existe la selección
+      if (!empty($_GET['variant_selected']))
+      {
+        foreach ($variants as $v)
+        {
+          if ($v['id'] == $_GET['variant_selected'])
+          {
+            $display_image = $v['image'];
+            break; // Detenemos el bucle en cuanto la encontramos
+          }
+        }
+      }
+      ?>
+
       <div class="product-image-details-container">
-        <img src="<?= $config['products_url'] . '/' . $product['image_url'] ?>" alt="<?= $product['name'] ?>" class="product-image-details">
+        <img src="<?= $config['products_url'] . '/' . $display_image ?>"
+          alt="<?= htmlspecialchars($product['name']) ?>"
+          class="product-image-details">
       </div>
       <h1 class="product-title"><?= $product['name'] ?></h1>
       <div class="price-section">
