@@ -14,14 +14,8 @@ includes/library/rachet/
 
 # --- Archivos temporales o pesados ---
 *.zip
-filestore/
 
-# Imágenes
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.webp
-
-# Video
-*.mp4
+# --- Archivos de subidas ---
+filestore/images/*
+filestore/uploads/avatar/*
+filestore/uploads/products/*
