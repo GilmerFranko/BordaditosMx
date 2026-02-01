@@ -1,13 +1,27 @@
+# --- Node / Vite ---
+node_modules/
+.vite/
+npm-debug.log*
+
+# --- Archivos de desarrollo ---
 error.log
-filestore
-.phpintel
+php_error.log
+*.log
+.env
+.phpintel/
+vendor/
+includes/library/rachet/
+
+# --- Archivos temporales o pesados ---
+*.zip
+filestore/
+
+# Imágenes
 *.png
 *.jpg
+*.jpeg
 *.gif
-*.mp4
-*.zip
 *.webp
-*.log
-*.env
-includes/library/rachet
-vendor
+
+# Video
+*.mp4

@@ -38,62 +38,44 @@
 	<!--jQuery -->
 	<script type="text/javascript" src="<?php echo $config['base_url']; ?>/static/js/jquery-3.3.1.min.js"></script>
 
-	<!-- Si esa es el modulo admin, se inyecta el JS de materialize si no se utiliza bootstrap-->
-	<script src="<?php echo $config['base_url'] . '/static/js/' . ($sModule == 'admin' ? 'materialize.min.js' : 'bootstrap.min.js'); ?>"></script>
+	<!-- Carga JS dependiendo del modulo -->
+	<?php if ($sModule == 'admin'): ?>
+		<!--<link rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/dist/css/admin.css">-->
+		<link rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/css/materialize.min.css">
+		<link rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/css/materialize-icons.css">
+		<link rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/css/admin.css">
+		<script src="<?php echo $config['base_url']; ?>/static/js/materialize.min.js"></script>
+		<script src="<?php echo $config['base_url']; ?>/static/js/custom.js"></script>
+		<script src="<?php echo $config['base_url']; ?>/static/js/admin.js"></script>
+	<?php else: ?>
+		<link rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/dist/css/public.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-	<!-- Import Toastify.js -->
-	<script type="text/javascript" src="<?php echo $config['base_url']; ?>/static/js/toastify.js"></script>
-	<!--Custom JS-->
-	<!-- Importa estilos solo para modulo admin -->
-	<?php if ($sModule == 'admin')
-	{ ?>
-		<script type="text/javascript" src="<?php echo $config['base_url']; ?>/static/js/custom.js">
-		</script>
-	<?php } ?>
+		<script type="module" src="<?php echo $config['base_url']; ?>/static/dist/js/public.js" defer></script>
+	<?php endif; ?>
 
-	<!-- JS Para los foros -->
-	<script type="text/javascript" src="<?php echo $config['base_url']; ?>/static/js/forums.js">
-	</script>
 
-	<!-- SweetAlert -->
-	<script type="text/javascript" src="<?php echo $config['base_url']; ?>/static/js/sweetalert.min.js" />
-	</script>
+	<!-- Solo cargar en Pagina de Contacto -->
+	<?php if ($sModule == 'site' and $sSection == 'contact'): ?>
+		<!-- Import Toastify.js -->
+		<script type="text/javascript" src="<?php echo $config['base_url']; ?>/static/js/toastify.js"></script>
+		<!-- Import toastify.css -->
+		<link type="text/css" rel="stylezsheet" href="<?php echo $config['base_url']; ?>/static/css/toastify.css" />
+	<?php endif; ?>
+
+
+	<!-- Titulo -->
 	<title><?php echo isset($page['name']) ? $page['name'] : ucfirst($sModule) . ' - ' . $config['script_name']; ?></title>
 
 	<!--Import Google Icon Font-->
 
-	<link href="<?php echo $config['base_url'] ?>/static/css/materialize-icons.css" rel="stylesheet">
-
-	<!--Import materialize.css or bootstrap-->
-	<link rel="stylesheet" href="<?php echo $config['base_url'] . '/static/css/' . ($sModule == 'admin' ? 'materialize.min.css' : 'bootstrap.min.css'); ?>">
-
-	<!-- Import toastify.css -->
-	<link type="text/css" rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/css/toastify.css" />
-
 	<!-- Importa estilos generales -->
-	<link type="text/css" rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/css/custom.css?r=<?php echo time(); ?>" />
+	<link type="text/css" rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/css/custom.css" />
 	<!-- Importa estilos solo para modulo admin -->
-	<?php if ($sModule == 'admin')
-	{ ?>
-		<link type="text/css" rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/css/admin.css?r=<?php echo time(); ?>" />
-	<?php
-		// Importa estilo cuando no es modulo admin 
-	}
-	else
-	{
-	?>
-		<link type="text/css" rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/css/custom2.css?r=<?php echo time(); ?>" />
-	<?php
-	}
-	?>
+
 
 	<link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
 
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-	<!--Import night.css-->
-
-	<!--<link type="text/css" rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/css/night.css?<?php echo time() ?>" />-->
 
 	<!--Sitio optimizado para moviles-->
 
@@ -149,41 +131,6 @@
 </head>
 
 <body>
-
-	<!-- mostrar preloader solo si no se esta en modo debug -->
-	<?php //if($config['debug_mode'] == 0) { 
-	?>
-	<!--<div class="preloader-background">
-
-			<div class="preloader-wrapper big active">
-
-				<div class="spinner-layer spinner-blue-only">
-
-					<div class="circle-clipper left">
-
-						<div class="circle"></div>
-
-					</div>
-
-					<div class="gap-patch">
-
-						<div class="circle"></div>
-
-					</div>
-
-					<div class="circle-clipper right">
-
-						<div class="circle"></div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>-->
-	<?php //} 
-	?>
 
 	<?php
 	if ($session->is_member and $sModule == 'admin')

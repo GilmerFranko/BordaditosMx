@@ -1,61 +1,61 @@
-# Redireccionar a HTTPS
+# ----------------------------------------------------------------------
+# 1. OPTIMIZACIÓN Y CACHÉ (Para que el cliente no pida los 58 archivos siempre)
+# ----------------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType text/javascript "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType image/x-icon "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+</IfModule>
+
+# Deshabilitar el listado de archivos (Seguridad)
+Options -Indexes
+
+# ----------------------------------------------------------------------
+# 2. MOTOR DE REESCRITURA
+# ----------------------------------------------------------------------
 RewriteEngine On
+
+# A. Redireccionar a HTTPS (Siempre primero)
 RewriteCond %{HTTPS} off
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Deshabilitar la ejecución de scripts PHP en directorios no permitidos
-# <Directory "ruta/al/directorio/no/permitido">
-#  Order deny,allow
-#  Deny from all
-# </Directory>  # Mantén esto comentado a menos que sea necesario
+# B. EXCEPCIÓN CRÍTICA (ESTO EVITA EL ERROR 429)
+# Si el navegador pide un archivo que EXISTE (como .js, .css o imágenes), 
+# detiene las reglas aquí y lo entrega directamente sin despertar a PHP.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
 
-# Protección contra hotlinking (considera ajustar para subdominios)
-# RewriteEngine On
-# RewriteCond %{HTTP_REFERER} !^https://(www\.)?tudominio\.com [NC]
-# RewriteRule \.(jpg|jpeg|png|gif|swf|flv|pdf)$ -F [NC,L]
+# C. REGLAS ESPECÍFICAS
+# Redirecciona URL cron.php
+RewriteRule ^cron\.php$ cron.php [NC,L,QSA]
 
-# Deshabilitar el listado de archivos
-Options -Indexes
-
-# Protección contra inyección de SQL
-<IfModule mod_php5.c>
-  AutoPrependFile .htaccess.prepend
-</IfModule>
-
-# Protección contra XSS
-<IfModule mod_php5.c>
-  AutoPrependFile .htaccess.prepend
-</IfModule>
-
-# Protección contra Cross-Site Request Forgery (CSRF)
-<IfModule mod_csrf_protection.c>
-  CsrfEnable On
-  CsrfTokenHeader Name X-CSRF-TOKEN
-  CsrfCookieName X-CSRF-TOKEN
-  CsrfExpiration 10800 # 3 horas
-</IfModule>
-
-RewriteEngine On
-
-# Redirecciona URL cron.php a cron.php
-RewriteRule ^cron.php$ cron.php [NC,L,QSA]
-
-# Redirecciona URLs para "ordenntes de reglas más generales
+# Redirecciona para pedidos
 RewriteRule ^pedido/([^/]+)$ index.php?app=products&section=summary&order_id=$1 [NC,L,QSA]
 
-# Redirecciona URLs para "ordenntes de reglas más generales
+# Redirecciona para rastreo
 RewriteRule ^rastrear/([^/]+)$ index.php?app=products&section=order_tracking&order_id=$1 [NC,L,QSA]
 
-# Reglas generales de reescritura
-# redirige a la sección principal de cada app si no se especifica sección
-RewriteRule ^(/)$ index.php?app=$1&section=null0 [NC,QSA,L]
-# redirige a la sección principal de cada app si no se especifica sección con barra al final
-RewriteRule ^([^/]+)/$ index.php?app=$1&section=null0 [NC,L,QSA]
-# redirige a la sección principal de cada app si no se especifica sección sin barra al final
-RewriteRule ^([^/]+)$ index.php?app=$1&section=null0 [NC,L,QSA]
-# redirige a la sección principal de cada app si no se especifica sección
-RewriteRule ^([^/]+)/([^/]+)$ index.php?app=$1&section=$2 [NC,L,QSA]
+# ----------------------------------------------------------------------
+# 3. REGLAS GENERALES (Amigables)
+# ----------------------------------------------------------------------
 
+# Redirige raíz a la sección principal
+RewriteRule ^$ index.php?app=home&section=null0 [NC,L,QSA]
 
-# Pagina no encontrada
+# Redirige dominio.com/app/
+RewriteRule ^([^/]+)/?$ index.php?app=$1&section=null0 [NC,L,QSA]
+
+# Redirige dominio.com/app/seccion
+RewriteRule ^([^/]+)/([^/]+)/?$ index.php?app=$1&section=$2 [NC,L,QSA]
+
+# ----------------------------------------------------------------------
+# 4. MANEJO DE ERRORES
+# ----------------------------------------------------------------------
 ErrorDocument 404 /index.php/nofound
