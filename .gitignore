@@ -19,3 +19,5 @@ includes/library/rachet/
 filestore/images/*
 filestore/uploads/avatar/*
 filestore/uploads/products/*
+
+!.gitkeep
