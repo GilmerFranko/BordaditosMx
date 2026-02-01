@@ -35,21 +35,20 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<!--jQuery -->
-	<script type="text/javascript" src="<?php echo $config['base_url']; ?>/static/js/jquery-3.3.1.min.js"></script>
+	<meta name="description" content="Tienda online de bordados. En nuestra tienda puedes encontrar una gran variedad de sweters bordados de alta calidad, con diseños exclusivos y materiales de primera clase. Envíos nacional a todo Mexico.">
 
 	<!-- Carga JS dependiendo del modulo -->
 	<?php if ($sModule == 'admin'): ?>
 		<!--<link rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/dist/css/admin.css">-->
 		<link rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/css/materialize.min.css">
-		<link rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/css/materialize-icons.css">
+		<link rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/css/materialize-icons.css" onload="this.media='all'">
 		<link rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/css/admin.css">
 		<script src="<?php echo $config['base_url']; ?>/static/js/materialize.min.js"></script>
 		<script src="<?php echo $config['base_url']; ?>/static/js/custom.js"></script>
 		<script src="<?php echo $config['base_url']; ?>/static/js/admin.js"></script>
 	<?php else: ?>
 		<link rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/dist/css/public.css">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" onload="this.media='all'">
 
 		<script type="module" src="<?php echo $config['base_url']; ?>/static/dist/js/public.js" defer></script>
 	<?php endif; ?>
@@ -58,7 +57,7 @@
 	<!-- Solo cargar en Pagina de Contacto -->
 	<?php if ($sModule == 'site' and $sSection == 'contact'): ?>
 		<!-- Import Toastify.js -->
-		<script type="text/javascript" src="<?php echo $config['base_url']; ?>/static/js/toastify.js"></script>
+		<script defer type="text/javascript" src="<?php echo $config['base_url']; ?>/static/js/toastify.js"></script>
 		<!-- Import toastify.css -->
 		<link type="text/css" rel="stylezsheet" href="<?php echo $config['base_url']; ?>/static/css/toastify.css" />
 	<?php endif; ?>
@@ -74,7 +73,7 @@
 	<!-- Importa estilos solo para modulo admin -->
 
 
-	<link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+	<link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet" onload="this.media='all'">
 
 
 	<!--Sitio optimizado para moviles-->
@@ -128,6 +127,8 @@
 
 	<?php } ?>
 
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
