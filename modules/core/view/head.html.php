@@ -53,14 +53,9 @@
 		<script type="module" src="<?php echo $config['base_url']; ?>/static/dist/js/public.js" defer></script>
 	<?php endif; ?>
 
-
-	<!-- Solo cargar en Pagina de Contacto -->
-	<?php if ($sModule == 'site' and $sSection == 'contact'): ?>
-		<!-- Import Toastify.js -->
-		<script defer type="text/javascript" src="<?php echo $config['base_url']; ?>/static/js/toastify.js"></script>
-		<!-- Import toastify.css -->
-		<link type="text/css" rel="stylezsheet" href="<?php echo $config['base_url']; ?>/static/css/toastify.css" />
-	<?php endif; ?>
+	<script defer type="text/javascript" src="<?php echo $config['base_url']; ?>/static/js/toastify.js"></script>
+	<!-- Import toastify.css -->
+	<link type="text/css" rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/css/toastify.css" />
 
 
 	<!-- Titulo -->
@@ -127,7 +122,7 @@
 
 	<?php } ?>
 
-	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
