@@ -1,16 +1,74 @@
-URGENTE
-1 Permitir cambiar la fecha de entrega de un producto facilmente ( Para despues, primero decirle al cliente que esta automatico)
+# 📋 PLAN DE TRABAJO Y TAREAS PENDIENTES
 
-2 Permitir cambiar facilmente Compra hoy y recibe el dia: Lunes 08 De Diciembre
+Este documento organiza y clasifica las tareas del proyecto, divididas por prioridad (**Para Hoy** vs. **Para Después**) y categorías técnicas para facilitar su seguimiento e implementación.
 
-3 Hacer funcionar buscador de productos
+---
 
-MODERADO
-Pagina rastrear
+## ⚡ PARA HOY (Prioridad Alta)
 
-PARA DESPUES
-1 funcionalidad para borrar un producto y sus dependencias
+### 1. Funcionalidades de Productos
+- [ ] **Visibilidad de Productos (`status = 0`)**
+  * **Problema:** Los productos con `status = 0` (inactivos/ocultos) siguen mostrándose al público. La visibilidad aún no es operativa.
+  * **Solución:** Modificar las consultas SQL/ORM de productos para filtrar y excluir aquellos con `status = 0` en las vistas públicas.
+- [ ] **Arreglar BBCode en Descripciones**
+  * **Problema:** El contenido con formato BBCode en la descripción de los productos no se está parseando/renderizando correctamente.
+  * **Solución:** Implementar o corregir el parser de BBCode en la vista de detalle del producto para convertirlo a HTML seguro.
+- [ ] **Top 20 de Productos**
+  * **Problema:** Implementar la sección/funcionalidad de "Top 20" de productos.
+  * **Solución:** Crear e integrar la tabla `top_products` (ver estructura SQL abajo) para gestionar las posiciones de los productos destacados.
 
-2 que cuando se genere un pedido se deba generar un numero de pedido aleatorio en otra columna para no usar el id princiapl 
+### 2. Interfaces de Usuario (UI / UX)
+- [ ] **Paginador en la Home**
+  * **Problema:** Actualmente no aparece ni funciona el paginador de productos en la página de inicio.
+  * **Solución:** Implementar la lógica de paginación en el controlador de la home y renderizar los controles correspondientes.
+- [ ] **Mejorar vistas `newproduct` y `editproduct`**
+  * **Problema:** Las vistas de creación y edición de productos necesitan una mejora visual y funcional para una mejor experiencia de administración.
+  * **Solución:** Rediseñar los formularios, mejorar la disposición de campos, validaciones y feedback visual.
+- [ ] **Cambiar Imagen de Registro en KingsBeet**
+  * **Problema:** Se debe actualizar la imagen mostrada en la landing de registro de KingsBeet.
+  * **Solución:** Reemplazar el archivo de imagen correspondiente en los assets o actualizar la ruta en la plantilla de la landing.
 
-3 al intentar subir las tres imagenes de una variante directamente en el formulario, sucede un error y se sube la imagen principal pero no se registra en la bd
+---
+
+## 📅 PARA DESPUÉS (Prioridad Media / Baja)
+
+### 1. Base de Datos y Modelos
+- [ ] **Número de Pedido Aleatorio / Alternativo**
+  * **Problema:** Actualmente se utiliza el ID principal autoincremental de los pedidos, lo cual expone información y no es óptimo para el usuario.
+  * **Solución:** Añadir una nueva columna (ej. `order_number`) para almacenar un identificador de pedido aleatorio, único y legible, evitando usar el ID principal en la comunicación con el cliente.
+- [ ] **Soft Delete en Variantes de Productos**
+  * **Problema:** Las variantes se eliminan físicamente (hard delete) de la base de datos, lo que puede causar pérdida de historial o errores en pedidos antiguos.
+  * **Solución:** Implementar eliminación suave (Soft Delete) usando una columna `deleted_at` en el modelo/tabla de variantes.
+
+### 2. Frontend y Rutas
+- [ ] **Redirección de Huéspedes (`/home-guest` a `/`)**
+  * **Problema:** Al acceder a ciertas secciones sin autenticación, redirige al usuario a `/home-guest` en lugar de a la raíz `/`.
+  * **Solución:** Ajustar el middleware de autenticación o controlador para redireccionar directamente a `/`.
+- [ ] **Iconos del Paginador en la Home (Bootstrap vs MaterializeCSS)**
+  * **Problema:** El paginador de la home está cargando/usando los iconos de MaterializeCSS en lugar de los iconos de Bootstrap esperados.
+  * **Solución:** Corregir las clases CSS o el archivo de plantilla para usar los iconos correctos de Bootstrap (ej. Bootstrap Icons o SVG correspondientes).
+
+### 3. Servidor y DevOps
+- [ ] **Optimización de Cron en Hosting de Miguel**
+  * **Problema:** Un cron job configurado para ejecutarse cada 1 minuto está generando y acumulando archivos basura en la raíz del hosting, llenando el espacio en disco.
+  * **Solución:** Revisar la configuración del cron o el script ejecutado (`cron.php`) para redirigir la salida (output/errors) a `/dev/null` o limpiar archivos temporales automáticamente (`* * * * * php /ruta/script.php > /dev/null 2>&1`).
+
+---
+
+## 🗄️ ESTRUCTURA DE BASE DE DATOS (`top_products`)
+
+> [!IMPORTANT]
+> **Corrección realizada en el SQL original:** Se corrigió un error de sintaxis en la línea de definición de `product_id`. El dump original contenía un punto erróneo (`product_id`.int (11)), el cual se ha corregido a un espacio estándar (`product_id` int(11)).
+
+```sql
+-- Estructura de tabla para la tabla `top_products`
+CREATE TABLE `top_products` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `position` int(2) NOT NULL COMMENT 'Posición en el Top 20',
+  `added_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `product_id` (`product_id`),
+  CONSTRAINT `top_products_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+```
